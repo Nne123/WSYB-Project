@@ -1,9 +1,9 @@
 ﻿body {
-    background-color: #6699FF;
+    background-color: #FFFFFF; /* Main area */
 }
 
 header {
-    background-color: #600;
+    background-color: #FFFFFF; /* top part */
     height: 10%;
     position: fixed;
     width: 100%;
@@ -12,7 +12,7 @@ header {
 }
 
 footer {
-    background-color: #600;
+    background-color: #99E3D8; /* botton part */
     height: 10%;
     position: fixed;
     width: 100%;
@@ -21,7 +21,7 @@ footer {
 }
 
 nav {
-    background-color: #FF5050;
+    background-color: #99E3D8; /* left side */
     position: fixed;
     width: 20%;
     height: 90%;
@@ -30,9 +30,9 @@ nav {
 }
 
 article {
-    background-color: #CC66FF;
+    background-color: #1CC3C3;    /* content placeholder */
     position: fixed;
-    width: 80%;
+    width: 100%;
     top: 10%;
     left: 20%;
 }
