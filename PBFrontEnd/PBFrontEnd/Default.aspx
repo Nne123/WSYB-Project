@@ -7,7 +7,6 @@
         &nbsp;</p>
 <p style="height: 64px">
     <br />
-    <asp:Button ID="btnSignUp" runat="server" style="z-index: 1; left: 14px; top: 103px; position: absolute" Text="Sign Up" />
 </p>
 </asp:Content>
 
