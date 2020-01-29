@@ -5,7 +5,7 @@
         &nbsp;</p>
     <p>
         &nbsp;</p>
-<p>
+<p style="height: 64px">
     <br />
 </p>
 </asp:Content>
