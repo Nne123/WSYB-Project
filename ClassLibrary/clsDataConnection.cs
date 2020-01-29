@@ -11,6 +11,7 @@ using System.Data;
 ///it is free for use by anybody so long as you give credit to the original author i.e me
 ///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2019
 
+
 public class clsDataConnection
 {
     //connection object used to connect to the database
