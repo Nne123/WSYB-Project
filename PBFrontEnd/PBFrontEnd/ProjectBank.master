@@ -24,7 +24,12 @@
             </article>
  
             <nav>
-                Login Here
+                 <br /> 
+                 <asp:HyperLink ID="hypSignIn" runat="server" NavigateUrl="~/SignIn.aspx">Sign In-</asp:HyperLink> <br /> <br />
+                 <asp:HyperLink ID="hypSignUp" runat="server" NavigateUrl="~/SignUp.aspx">Sign Up-</asp:HyperLink> <br /> <br />
+                 <asp:HyperLink ID="hypChangePassword" runat="server" NavigateUrl="~/ChangePassword.aspx">Change Password-</asp:HyperLink> <br /> <br />
+                 <asp:HyperLink ID="hypSignOut" runat="server" NavigateUrl="~/SignOut.aspx">Sign Out-</asp:HyperLink> <br /> <br />
+                 <asp:HyperLink ID="hypReSet" runat="server" NavigateUrl="~/ReSet.aspx">Re-Set Password-</asp:HyperLink>
             </nav>
  
             <footer>
