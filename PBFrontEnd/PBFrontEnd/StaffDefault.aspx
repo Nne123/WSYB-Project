@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
+        <asp:Label ID="lblStaffList" runat="server" Font-Bold="False" Font-Size="X-Large" Text="Staff List"></asp:Label>
+    </p>
+    <p>
         <asp:ListBox ID="lstOrders" runat="server" Height="226px" Width="363px"></asp:ListBox>
         <br />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; width: 393px"></asp:Label>

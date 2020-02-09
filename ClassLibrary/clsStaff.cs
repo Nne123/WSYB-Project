@@ -113,17 +113,71 @@ namespace ClassLibrary
 
         public bool Find(int StaffNo)
         {
-            // set the private data member to the test data value
-            mStaffNo = 1;
-            mFirstName = "Brad";
-            mLastName = "Pitt";
-            mAddressLine = "6 Grange Lane";
-            mPostCode = "4HG 57G";
-            mCountyNo = 1;
-            mPhoneNo = "0745375957";
-            mActive = true;
-            // always return true
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffNo", StaffNo);
+            DB.Execute("sproc_tblStaff_FilterByStaffNo");
+            if (DB.Count == 1)
+            {
+                // set the private data member to the test data value
+                mStaffNo = Convert.ToInt32(DB.DataTable.Rows[0]["StaffNo"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mAddressLine = Convert.ToString(DB.DataTable.Rows[0]["AddressLine"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mCountyNo = Convert.ToInt32(DB.DataTable.Rows[0]["CountyNo"]);
+                mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["PhoneNo"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                // always return true
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+           
+        }
+
+        public string Valid(string firstName, string lastName, string addressLine, string postCode, int countyNo, string phoneNo, bool activeOK)
+        {
+            String Error = "";
+            if (firstName.Length == 0)
+            {
+                Error = Error + "The first name may not be blank : ";
+            }
+
+            if (firstName.Length > 20)
+            {
+                Error = Error + "The first name may not be blank : ";
+            }
+
+            if (lastName.Length == 0)
+            {
+                Error = Error + "The last name may not be blank : ";
+            }
+
+            if (lastName.Length > 20)
+            {
+                Error = Error + "The last name may not be blank : ";
+            }
+
+            if (addressLine.Length < 10)
+            {
+                Error = Error + "The address line cannot be more than 40 characters : ";
+            }
+
+            if (addressLine.Length > 40)
+            {
+                Error = Error + "The address line cannot be more than 40 characters : ";
+            }
+
+            if (postCode.Length == 5)
+            {
+                Error = Error + "The postcode cannot be less than 5 characters : ";
+            }
+
+            // return any error messages
+            return Error;
         }
     }
 }
