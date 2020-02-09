@@ -7,6 +7,17 @@ namespace TestFramework
     [TestClass]
     public class tstStaff
     {
+        // good test data
+        // create some test data to pass to the method
+        string FirstName = "Mandy";
+        string LastName = "Francis";
+        string AddressLine = "3 Diamond Road";
+        string PostCode = "4HT 6UG";
+        int CountyNo = 2;
+        string PhoneNo = "07586937485";
+        bool ActiveOK = true;
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -64,7 +75,7 @@ namespace TestFramework
         }
 
         [TestMethod]
-        public void PostCode()
+        public void PostCodePropertyOK()
         {
             clsStaff AStaff = new clsStaff();
             string PostCode = "LE3 4T6";
@@ -73,7 +84,7 @@ namespace TestFramework
         }
 
         [TestMethod]
-        public void PhoneNo()
+        public void PhoneNoPropertyOK()
         {
             clsStaff AStaff = new clsStaff();
             string PhoneNo = "07463837463";
@@ -103,7 +114,7 @@ namespace TestFramework
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffNo = 34;
+            Int32 StaffNo = 1;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //test to see that the result is correct
@@ -284,6 +295,276 @@ namespace TestFramework
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMinLessOne()  // 0 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMinBoundary()  // 1 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "a";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMinPlusOne()  // 2 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "aa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMaxLessOne()  // 19 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "aaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMaxBoundary()  // 20 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "aaaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMaxPlusOne()  // 21 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "aaaaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMid()  // 10 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "aaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameExtremeMax()  // 100 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "";
+            FirstName = FirstName.PadRight(100, 'a');
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        // last name tests
+
+        [TestMethod]
+        public void LastNameMinLessOne()  // 0 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string LastName = "";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void LastNameMinBoundary()  // 1 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string LastName = "a";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void LastNameMinPlusOne()  // 2 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string LastName = "aa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void LastNameMaxLessOne()  // 19 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string LastName = "aaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void LastNameMaxBoundary()  // 20 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string LastName = "aaaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void LastNameMaxPlusOne()  // 21 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "aaaaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void LastNameMid()  // 10 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string FirstName = "aaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void LastNameExtremeMax()  // 100 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string LastName = "";
+            LastName = LastName.PadRight(100, 'a');
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        // address line tests
+
+
+        [TestMethod]
+        public void AddressLineMinLessOne()  // 9 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string AddressLine = "aaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AddressLineMinBoundary()  // 10 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string AddressLine = "aaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AddressLineMinPlusOne()  // 11 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string AddressLine = "aaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AddressLineMaxLessOne()  // 39 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string AddressLine = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AddressLineMaxBoundary()  // 40 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string AddressLine = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AddressLineMaxPlusOne()  // 41 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string AddressLine = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        //[TestMethod]
+        //public void AddressLineExtremeMin()  // -300 char
+        //{
+        //    clsStaff AStaff = new clsStaff();
+        //    String Error = "";
+        //    string AddressLine = "";
+        //    AddressLine = AddressLine.PadRight(6, 'a');
+        //    Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+        //    Assert.AreNotEqual(Error, "");
+        //}
+
+        [TestMethod]
+        public void AddressLineExtremeMax()  // 300 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string AddressLine = "";
+            AddressLine = AddressLine.PadRight(300, 'a');
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMinLessOne()  // 5 char
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            string PostCode = "aaaaa";
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo, ActiveOK);
+            Assert.AreNotEqual(Error, "");
         }
     }
 }
