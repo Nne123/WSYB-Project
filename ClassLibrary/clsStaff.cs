@@ -138,10 +138,11 @@ namespace ClassLibrary
            
         }
 
-        public string Valid(string firstName, string lastName, string addressLine, string postCode, int countyNo, string phoneNo, bool activeOK)
+        public string Valid(string firstName, string lastName, string addressLine, string postCode, int countyNo, string phoneNo)
         {
             String Error = "";
-            if (firstName.Length == 0)
+
+            if (firstName.Length < 1)
             {
                 Error = Error + "The first name may not be blank : ";
             }
@@ -151,7 +152,7 @@ namespace ClassLibrary
                 Error = Error + "The first name may not be blank : ";
             }
 
-            if (lastName.Length == 0)
+            if (lastName.Length < 1)
             {
                 Error = Error + "The last name may not be blank : ";
             }
@@ -171,7 +172,22 @@ namespace ClassLibrary
                 Error = Error + "The address line cannot be more than 40 characters : ";
             }
 
-            if (postCode.Length == 5)
+            if (postCode.Length < 6)
+            {
+                Error = Error + "The postcode cannot be less than 5 characters : ";
+            }
+
+            if (postCode.Length > 10)
+            {
+                Error = Error + "The postcode cannot be less than 5 characters : ";
+            }
+
+            if (phoneNo.Length < 11)
+            {
+                Error = Error + "The postcode cannot be less than 5 characters : ";
+            }
+
+            if (phoneNo.Length > 15)
             {
                 Error = Error + "The postcode cannot be less than 5 characters : ";
             }
