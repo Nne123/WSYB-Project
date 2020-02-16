@@ -43,27 +43,9 @@ namespace ClassLibrary
 
         public clsStaffCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblStaff_SelectAll");
-            RecordCount = DB.Count;
-            while (Index < RecordCount)
-            {
-                clsStaff AStaff = new clsStaff();
-                AStaff.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                AStaff.StaffNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffNo"]);
-                AStaff.CountyNo = Convert.ToInt32(DB.DataTable.Rows[Index]["CountyNo"]);
-                AStaff.StaffFirstName = Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]);
-                AStaff.StaffLastName = Convert.ToString(DB.DataTable.Rows[Index]["LastName"]);
-                AStaff.AddressLine = Convert.ToString(DB.DataTable.Rows[Index]["AddressLine"]);
-                AStaff.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["PostCode"]);
-                AStaff.PhoneNo = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNo"]);
-                // add the record to the private data member
-                mStaffList.Add(AStaff);
-                // point at the next record
-                Index++;
-            }
+            PopulateArray(DB);
         }
 
         public List<clsStaff> StaffList
@@ -115,6 +97,67 @@ namespace ClassLibrary
             // execute the query returning the primary key value
             return DB.Execute("sproc_tblStaff_Insert");
 
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
+            // execute the stored procedure
+            DB.Execute("sproc_tblStaff_Delete");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
+            DB.AddParameter("@FirstName", mThisStaff.StaffFirstName);
+            DB.AddParameter("@LastName", mThisStaff.StaffLastName);
+            DB.AddParameter("@AddressLine", mThisStaff.AddressLine);
+            DB.AddParameter("@PostCode", mThisStaff.PostCode);
+            DB.AddParameter("@CountyNo", mThisStaff.CountyNo);
+            DB.AddParameter("@PhoneNo", mThisStaff.PhoneNo);
+            DB.AddParameter("@Active", mThisStaff.Active);
+            // execute the stored procedure
+            DB.Execute("sproc_tblStaff_Update");
+        }
+
+        public void ReportByLastName(string LastName)
+        {
+            // filters the records based on a full or partial surname
+            // connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            // send the last name parameter to the database
+            DB.AddParameter("@LastName", LastName);
+            // execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByLastName");
+            // populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray (clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mStaffList = new List<clsStaff>();
+            while (Index < RecordCount)
+            {
+                clsStaff AStaff = new clsStaff();
+                // read in the fields from the current records
+                AStaff.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AStaff.StaffNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffNo"]);
+                AStaff.CountyNo = Convert.ToInt32(DB.DataTable.Rows[Index]["CountyNo"]);
+                AStaff.StaffFirstName = Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]);
+                AStaff.StaffLastName = Convert.ToString(DB.DataTable.Rows[Index]["LastName"]);
+                AStaff.AddressLine = Convert.ToString(DB.DataTable.Rows[Index]["AddressLine"]);
+                AStaff.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["PostCode"]);
+                AStaff.PhoneNo = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNo"]);
+                // add the record to the private data member
+                mStaffList.Add(AStaff);
+                // point at the next record
+                Index++;
+            }
         }
     }
 }
