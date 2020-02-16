@@ -149,7 +149,7 @@ namespace ClassLibrary
 
             if (firstName.Length > 20)
             {
-                Error = Error + "The first name may not be blank : ";
+                Error = Error + "The first name cannot be more than 20 characters : ";
             }
 
             if (lastName.Length < 1)
@@ -159,12 +159,12 @@ namespace ClassLibrary
 
             if (lastName.Length > 20)
             {
-                Error = Error + "The last name may not be blank : ";
+                Error = Error + "The last name cannot be more than 20 characters long : ";
             }
 
             if (addressLine.Length < 10)
             {
-                Error = Error + "The address line cannot be more than 40 characters : ";
+                Error = Error + "The address line cannot be less than 10 characters : ";
             }
 
             if (addressLine.Length > 40)
@@ -174,22 +174,22 @@ namespace ClassLibrary
 
             if (postCode.Length < 6)
             {
-                Error = Error + "The postcode cannot be less than 5 characters : ";
+                Error = Error + "The postcode cannot be less than 6 characters : ";
             }
 
             if (postCode.Length > 10)
             {
-                Error = Error + "The postcode cannot be less than 5 characters : ";
+                Error = Error + "The postcode cannot be less than 10 characters : ";
             }
 
             if (phoneNo.Length < 11)
             {
-                Error = Error + "The postcode cannot be less than 5 characters : ";
+                Error = Error + "The phone number cannot be less than 11 characters : ";
             }
 
             if (phoneNo.Length > 15)
             {
-                Error = Error + "The postcode cannot be less than 5 characters : ";
+                Error = Error + "The phone number cannot be less than 15 characters : ";
             }
 
             // return any error messages
