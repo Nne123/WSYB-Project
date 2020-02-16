@@ -9,20 +9,20 @@
         <br />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; width: 393px"></asp:Label>
         <br /> <br />
-        <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; width: 169px"></asp:TextBox>
+        <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; width: 169px"></asp:TextBox>
         <br />
     </p>
     <p>
-&nbsp;<asp:Button ID="btnApply" runat="server" Text="Apply" />
+&nbsp;<asp:Button ID="btnApply" runat="server" Text="Apply" OnClick="btnApply_Click" />
         &nbsp;
         <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" />
     </p>
 <p style="height: 64px">
     <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
 &nbsp;
-    <asp:Button ID="btnEdit" runat="server" Text="Edit" />
+    <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
 &nbsp;
-    <asp:Button ID="btnDelete" runat="server" Text="Delete" />
+    <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
     <br />
 </p>
 </asp:Content>

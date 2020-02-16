@@ -13,7 +13,6 @@ namespace TestFramework
         string LastName = "Francis";
         string AddressLine = "3 Diamond Road";
         string PostCode = "4HT 6UG";
-        int CountyNo = 2;
         string PhoneNo = "07586937485";
 
 
