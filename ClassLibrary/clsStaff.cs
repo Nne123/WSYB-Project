@@ -138,7 +138,7 @@ namespace ClassLibrary
            
         }
 
-        public string Valid(string firstName, string lastName, string addressLine, string postCode, int countyNo, string phoneNo)
+        public string Valid(string firstName, string lastName, string addressLine, string postCode, /*int countyNo,*/ string phoneNo)
         {
             String Error = "";
 

@@ -27,4 +27,10 @@ public partial class StaffDefault : System.Web.UI.Page
         // bind the data to the list
         lstStaff.DataBind();
     }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["StaffNo"] = -1;
+        Response.Redirect("AStaff.aspx");
+    }
 }
