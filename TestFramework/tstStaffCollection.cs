@@ -41,7 +41,7 @@ namespace TestFramework
         public void CountPropertyOK()
         {
             clsStaffCollection AllStaff = new clsStaffCollection();
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 2;
             AllStaff.Count = SomeCount;
             Assert.AreEqual(AllStaff.Count, SomeCount);
         }
@@ -64,6 +64,35 @@ namespace TestFramework
             AllStaff.ThisStaff = TestStaff;
             // assign the data to the property
             Assert.AreEqual(AllStaff.ThisStaff, TestStaff);
+        }
+
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            List<clsStaff> TestList = new List<clsStaff>();
+            clsStaff TestItem = new clsStaff();
+            // set its properties
+            TestItem.Active = true;
+            TestItem.StaffNo = 1;
+            TestItem.CountyNo = 1;
+            TestItem.StaffFirstName = "Sally";
+            TestItem.StaffLastName = "Gomery";
+            TestItem.AddressLine = "8 Hillbilly State";
+            TestItem.PostCode = "HG6 8SH";
+            TestItem.PhoneNo = "07563856402";
+            // add the itme to the test list
+            TestList.Add(TestItem);
+            // assign the data to the property
+            AllStaff.StaffList = TestList;
+            Assert.AreEqual(AllStaff.Count, TestList.Count);
+        }
+
+        [TestMethod]
+        public void TwoRecordsPresent()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            Assert.AreEqual(AllStaff.Count, 2);
         }
     }
 }
