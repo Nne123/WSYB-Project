@@ -9,7 +9,8 @@ namespace ClassLibrary
     {
         // private data member for the list
         List<clsStaff> mStaffList = new List<clsStaff>();
-
+        // private data member thisStaff
+        clsStaff mThisStaff = new clsStaff();
 
         //public clsStaffCollection()
         //{
@@ -89,6 +90,31 @@ namespace ClassLibrary
             }
 
         }
-        public clsStaff ThisStaff { get; set; }
+        public clsStaff ThisStaff
+        {
+            get
+            {
+                return mThisStaff;
+            }
+            set
+            {
+                mThisStaff = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@FirstName", mThisStaff.StaffFirstName);
+            DB.AddParameter("@LastName", mThisStaff.StaffLastName);
+            DB.AddParameter("@AddressLine", mThisStaff.AddressLine);
+            DB.AddParameter("@PostCode", mThisStaff.PostCode);
+            DB.AddParameter("@CountyNo", mThisStaff.CountyNo);
+            DB.AddParameter("@PhoneNo", mThisStaff.PhoneNo);
+            DB.AddParameter("@Active", mThisStaff.Active);
+            // execute the query returning the primary key value
+            return DB.Execute("sproc_tblStaff_Insert");
+
+        }
     }
 }

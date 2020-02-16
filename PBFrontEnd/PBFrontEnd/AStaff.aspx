@@ -15,7 +15,7 @@
             <br />
             <asp:Label ID="lblPostCode" runat="server" Text="PostCode"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtPostCode" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblCounty" runat="server" Text="County" Width="100px"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlCounty" runat="server" style="z-index: 1; "></asp:DropDownList>
@@ -31,7 +31,7 @@
             <asp:Label ID="lblError" runat="server" ></asp:Label>            
             <br />
             <br />
-            <asp:Button ID="btnOK" runat="server" Text="OK" />
+            <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" />
 &nbsp;
     <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
 

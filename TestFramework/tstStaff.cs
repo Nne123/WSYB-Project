@@ -302,7 +302,7 @@ namespace TestFramework
         {
             clsStaff AStaff = new clsStaff();
             String Error = "";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -312,7 +312,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -322,7 +322,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "a";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -332,7 +332,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "aa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -342,7 +342,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "aaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -352,7 +352,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "aaaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -362,7 +362,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "aaaaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -372,7 +372,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "aaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -383,7 +383,7 @@ namespace TestFramework
             String Error = "";
             string FirstName = "";
             FirstName = FirstName.PadRight(100, 'a');
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -396,7 +396,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string LastName = "";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -406,7 +406,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string LastName = "a";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -416,7 +416,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string LastName = "aa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -426,7 +426,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string LastName = "aaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -436,7 +436,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string LastName = "aaaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -446,7 +446,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "aaaaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -456,7 +456,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string FirstName = "aaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -467,7 +467,7 @@ namespace TestFramework
             String Error = "";
             string LastName = "";
             LastName = LastName.PadRight(100, 'a');
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -481,7 +481,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string AddressLine = "aaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -491,7 +491,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string AddressLine = "aaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -501,7 +501,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string AddressLine = "aaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -511,7 +511,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string AddressLine = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -521,7 +521,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string AddressLine = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -531,7 +531,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string AddressLine = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -542,7 +542,7 @@ namespace TestFramework
             String Error = "";
             string AddressLine = "";
             AddressLine = AddressLine.PadRight(6, 'a');
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -553,7 +553,7 @@ namespace TestFramework
             String Error = "";
             string AddressLine = "";
             AddressLine = AddressLine.PadRight(300, 'a');
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -563,7 +563,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PostCode = "aaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -573,7 +573,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PostCode = "aaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -583,7 +583,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PostCode = "aaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -593,7 +593,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PostCode = "aaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -603,7 +603,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PostCode = "aaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -613,7 +613,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PostCode = "aaaaaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -623,7 +623,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PostCode = "aaaaaaaa";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -634,7 +634,7 @@ namespace TestFramework
             String Error = "";
             string PostCode = "";
             PostCode = PostCode.PadRight(100, 'a');
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -644,7 +644,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PhoneNo = "0765847392";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -654,7 +654,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PhoneNo = "07658473926";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -664,7 +664,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PhoneNo = "076584739265";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -674,7 +674,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PhoneNo = "07658473926222";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -684,7 +684,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PhoneNo = "076584739266666";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreEqual(Error, "");
         }
 
@@ -694,7 +694,7 @@ namespace TestFramework
             clsStaff AStaff = new clsStaff();
             String Error = "";
             string PhoneNo = "0765847392655555";
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -705,7 +705,7 @@ namespace TestFramework
             String Error = "";
             string PhoneNo = "";
             PhoneNo = PhoneNo.PadRight(500, 'a');
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode, CountyNo, PhoneNo);
+            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
             Assert.AreNotEqual(Error, "");
         }
     }
