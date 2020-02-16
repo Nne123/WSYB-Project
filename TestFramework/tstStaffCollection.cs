@@ -37,14 +37,7 @@ namespace TestFramework
             Assert.AreEqual(AllStaff.StaffList, TestList);
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsStaffCollection AllStaff = new clsStaffCollection();
-            Int32 SomeCount = 2;
-            AllStaff.Count = SomeCount;
-            Assert.AreEqual(AllStaff.Count, SomeCount);
-        }
+
 
         [TestMethod]
         public void ThisStaffPropertyOK()
@@ -88,11 +81,5 @@ namespace TestFramework
             Assert.AreEqual(AllStaff.Count, TestList.Count);
         }
 
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            clsStaffCollection AllStaff = new clsStaffCollection();
-            Assert.AreEqual(AllStaff.Count, 2);
-        }
     }
 }
