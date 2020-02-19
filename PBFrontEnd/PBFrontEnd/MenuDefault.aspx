@@ -4,7 +4,7 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Label ID="Label1" runat="server" Text="Menu List"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Menu List" Font-Bold="True" Font-Size="XX-Large" ForeColor="Black"></asp:Label>
     </p>
         <p>
         <asp:ListBox ID="lstOrders" runat="server" Height="226px" Width="363px"></asp:ListBox>

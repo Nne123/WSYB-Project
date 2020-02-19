@@ -29,7 +29,8 @@
                  <asp:HyperLink ID="hypSignUp" runat="server" NavigateUrl="~/SignUp.aspx">Sign Up-</asp:HyperLink> <br /> <br />
                  <asp:HyperLink ID="hypChangePassword" runat="server" NavigateUrl="~/ChangePassword.aspx">Change Password-</asp:HyperLink> <br /> <br />
                  <asp:HyperLink ID="hypSignOut" runat="server" NavigateUrl="~/SignOut.aspx">Sign Out-</asp:HyperLink> <br /> <br />
-                 <asp:HyperLink ID="hypReSet" runat="server" NavigateUrl="~/ReSet.aspx">Re-Set Password-</asp:HyperLink>
+                 <asp:HyperLink ID="hypReSet" runat="server" NavigateUrl="~/ReSet.aspx">Re-Set Password-</asp:HyperLink> <br /> <br />
+                <asp:HyperLink ID="hypMainMenu" runat="server" NavigateUrl="~/MainMenu.aspx">Main Menu-</asp:HyperLink>
             </nav>
  
             <footer>

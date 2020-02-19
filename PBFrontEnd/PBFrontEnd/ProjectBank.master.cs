@@ -33,10 +33,11 @@ public partial class ProjectBank : System.Web.UI.MasterPage
 
         //set the state of the following to not authenticated i.e. they will be visible when not logged in
         hypReSet.Visible = !Authenticated;
-        hypSignUp.Visible = !Authenticated;
+        
         hypSignIn.Visible = !Authenticated;
+
         //set the state of the following to authenticated i.e. they will be visible when user is logged in
         hypChangePassword.Visible = Authenticated;
-        hypSignOut.Visible = Authenticated;
+        hypSignOut.Visible = Authenticated;    hypSignUp.Visible = Authenticated;
     }
 }

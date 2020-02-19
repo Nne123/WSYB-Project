@@ -30,7 +30,7 @@ public partial class SignIn : System.Web.UI.Page
         if (Error == "")
         {
             //redirect to the main page
-            Response.Redirect("Default.aspx");
+            Response.Redirect("MainMenu.aspx");
         }
         else
         {
@@ -42,7 +42,7 @@ public partial class SignIn : System.Web.UI.Page
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         //navigate back to default
-        Response.Redirect("Default.aspx");
+        Response.Redirect("MainMenu.aspx");
     }
 
     protected void btnResetPassword_Click(object sender, EventArgs e)
