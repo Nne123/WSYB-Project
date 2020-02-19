@@ -1,6 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ProjectBank.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ProjectBank.master" AutoEventWireup="true" CodeFile="OrderDefault.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <p>
+        &nbsp;<asp:Label ID="lblOrder" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Order"></asp:Label>
+    </p>
     <p>
         <asp:ListBox ID="lstOrders" runat="server" Height="226px" Width="363px"></asp:ListBox>
         <br />

@@ -267,7 +267,6 @@ public class clsSecurity
         }
     }
 
-
     private string CheckPassword(string Password)
     //used to check that the password meets requirments
     {

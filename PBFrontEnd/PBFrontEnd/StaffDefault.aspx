@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
-        <asp:Label ID="lblStaffList" runat="server" Font-Bold="False" Font-Size="X-Large" Text="Staff List"></asp:Label>
+        <asp:Label ID="lblStaffList" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Staff List" ForeColor="Black"></asp:Label>
     </p>
     <p>
         <asp:ListBox ID="lstStaff" runat="server" Height="226px" Width="363px"></asp:ListBox>

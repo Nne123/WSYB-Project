@@ -36,7 +36,7 @@ public partial class ChangePassword : System.Web.UI.Page
             if (IsAuthenticated(Sec) == false)
             {
                 //redirect back to the main page as the user hasn't got permission to use this page
-                Response.Redirect("Default.aspx");
+                Response.Redirect("MainMenu.aspx");
             }
         }
     }
@@ -101,6 +101,6 @@ public partial class ChangePassword : System.Web.UI.Page
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         //go back to the main page
-        Response.Redirect("Default.aspx");
+        Response.Redirect("MainMenu.aspx");
     }
 }

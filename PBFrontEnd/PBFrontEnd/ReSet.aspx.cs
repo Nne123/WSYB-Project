@@ -33,6 +33,6 @@ public partial class ReSet : System.Web.UI.Page
     protected void btnDone_Click(object sender, EventArgs e)
     {
         //go back to the main page
-        Response.Redirect("Default.aspx");
+        Response.Redirect("MainMenu.aspx");
     }
 }

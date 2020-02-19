@@ -124,4 +124,9 @@ public partial class AStaff : System.Web.UI.Page
         chkActive.Checked = StaffBook.ThisStaff.Active;
         ddlCounty.SelectedValue = StaffBook.ThisStaff.CountyNo.ToString();
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffDefault.aspx");
+    }
 }
