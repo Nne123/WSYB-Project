@@ -52,8 +52,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstCounty.cs" />
     <Compile Include="tstCountyCollection.cs" />
-    <Compile Include="tstMenuCollection.cs" />
     <Compile Include="tstMenuItem.cs" />
+    <Compile Include="tstMenuItemCollection.cs" />
     <Compile Include="tstStaff.cs" />
     <Compile Include="tstStaffCollection.cs" />
   </ItemGroup>
