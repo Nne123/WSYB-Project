@@ -7,11 +7,11 @@
             <asp:Label ID="Label1" runat="server" Text="Menu List" Font-Bold="True" Font-Size="XX-Large" ForeColor="Black"></asp:Label>
     </p>
         <p>
-        <asp:ListBox ID="lstOrders" runat="server" Height="226px" Width="363px"></asp:ListBox>
+        <asp:ListBox ID="lstMenuItems" runat="server" Height="226px" Width="363px"></asp:ListBox>
         <br />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; width: 393px"></asp:Label>
         <br /> <br />
-        <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; width: 169px"></asp:TextBox>
+        <asp:TextBox ID="txtMenuItem" runat="server" style="z-index: 1; width: 169px"></asp:TextBox>
         <br />
     </p>
     <p>

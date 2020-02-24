@@ -4,9 +4,43 @@ namespace ClassLibrary
 {
     public class clsMenuItem
     {
-        public string MenuItem { get; set; }
-        public int MenuItemNo { get; set; }
-        public int MenuItemPrice { get; set; }
+        private Int32 mMenuItemNo;
+        private string mMenuItem;
+        private Int32 mMenuItemPrice;
+
+        public string MenuItem
+        {
+            get
+            {
+                return mMenuItem;
+            }
+            set
+            {
+                mMenuItem = value;
+            }
+        }
+        public int MenuItemNo
+        {
+            get
+            {
+                return mMenuItemNo;
+            }
+            set
+            {
+                mMenuItemNo = value;
+            }
+        }
+        public int MenuItemPrice
+        {
+            get
+            {
+                return mMenuItemPrice;
+            }
+            set
+            {
+                mMenuItemPrice = value;
+            }
+        }
 
         public string Valid(string someMenuItem, string menuItemPrice)
         {
@@ -41,6 +75,26 @@ namespace ClassLibrary
             }
 
             return Error;
+        }
+
+        public bool Find(int menuItemNo)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@MenuItemNo", menuItemNo);
+            DB.Execute("sproc_tblMenuItem_FilterByMenuItemNo");
+            if (DB.Count == 1)
+            {
+                mMenuItemNo = Convert.ToInt32(DB.DataTable.Rows[0]["MenuItemNo"]);
+                mMenuItem = Convert.ToString(DB.DataTable.Rows[0]["MenuItem"]);
+                mMenuItemPrice = Convert.ToInt32(DB.DataTable.Rows[0]["MenuItemPrice"]);
+                // return that everything worked OK
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }

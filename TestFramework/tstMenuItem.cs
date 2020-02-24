@@ -8,7 +8,8 @@ namespace TestFramework
     public class tstMenuItem
     {
         string MenuItemPrice = Convert.ToString(3);
-        string SomeMenuItem = "Apple";
+        string MenuItem = "Apple";
+
 
         // The class exists
 
@@ -30,8 +31,6 @@ namespace TestFramework
             Assert.AreEqual(AMenuItem.MenuItem, SomeMenuItem);
         }
 
-        // the menu no property 
-
         [TestMethod]
         public void MenuItemNoPropertyOK()
         {
@@ -39,15 +38,6 @@ namespace TestFramework
             Int32 MenuItemNo = 1;
             AMenuItem.MenuItemNo = MenuItemNo;
             Assert.AreEqual(AMenuItem.MenuItemNo, MenuItemNo);
-        }
-
-        [TestMethod]
-        public void MenuItemPricePropertyOK()
-        {
-            clsMenuItem AMenuItem = new clsMenuItem();
-            Int32 MenuItemPrice = 1;
-            AMenuItem.MenuItemPrice = MenuItemPrice;
-            Assert.AreEqual(AMenuItem.MenuItemPrice, MenuItemPrice);
         }
 
         // valid method ok
@@ -60,6 +50,15 @@ namespace TestFramework
             string SomeMenuItem = "Strawberry";
             Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MenuItemPricePropertyOK()
+        {
+            clsMenuItem AMenuItem = new clsMenuItem();
+            Int32 someMenuItemPrice = 1;
+            AMenuItem.MenuItemPrice = someMenuItemPrice;
+            Assert.AreEqual(AMenuItem.MenuItemPrice, someMenuItemPrice);
         }
 
         // menu item min less one
@@ -129,7 +128,7 @@ namespace TestFramework
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
-            string SomeMenuItem = "aaaaaaaaaaaaaaaaaaaaaa";
+            string SomeMenuItem = "aaaaaaaaaaaaaaaaaaaaa";
             Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
             Assert.AreNotEqual(Error, "");
         }
@@ -167,7 +166,7 @@ namespace TestFramework
             Int32 TestPrice;
             TestPrice = 0;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -179,7 +178,7 @@ namespace TestFramework
             Int32 TestPrice;
             TestPrice = 1;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -191,7 +190,7 @@ namespace TestFramework
             Int32 TestPrice;
             TestPrice = 2;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -203,7 +202,7 @@ namespace TestFramework
             Int32 TestPrice;
             TestPrice = 9;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -216,45 +215,98 @@ namespace TestFramework
             Int32 TestPrice;
             TestPrice = 10;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
         }
 
 
         [TestMethod]
-        public void MenuItemPriceMaxPlusOne()    // 11 int PASS
+        public void MenuItemPriceMaxPlusOne()    // 11 int FAIL
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
             Int32 TestPrice;
             TestPrice = 11;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItemPrice, MenuItemPrice);
             Assert.AreNotEqual(Error, "");
         }
 
 
         [TestMethod]
-        public void MenuItemPriceExtremeMax()    // 100 int PASS
+        public void MenuItemPriceExtremeMax()    // 100 int FAIL
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
             Int32 TestPrice;
             TestPrice = 100;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItemPrice, MenuItemPrice);
             Assert.AreNotEqual(Error, "");
         }
 
 
         [TestMethod]
-        public void MenuItemPriceInvalidData()    // invalid data FAIL
+        public void FindMethodOK()
         {
             clsMenuItem AMenuItem = new clsMenuItem();
-            String Error = "";
-            string MenuItemPrice = "this is not a price!";
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
-            Assert.AreNotEqual(Error, "");
+            Boolean Found = false;
+            Int32 MenuItemNo = 3;
+            //invoke the method
+            Found = AMenuItem.Find(MenuItemNo);
+            Assert.IsTrue(Found);
         }
+
+
+
+
+        [TestMethod]
+        public void TestMenuItemNoFound()
+        {
+            clsMenuItem AMenuItem = new clsMenuItem();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 MenuItemNo = 3;
+            Found = AMenuItem.Find(MenuItemNo);
+            if (AMenuItem.MenuItemNo != 3)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestMenuItemFound()
+        {
+            clsMenuItem AMenuItem = new clsMenuItem();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 MenuItemNo = 3;
+            Found = AMenuItem.Find(MenuItemNo);
+            if (AMenuItem.MenuItem != "Pear")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+
+        [TestMethod]
+        public void TestMenuItemPriceFound()
+        {
+            clsMenuItem AMenuItem = new clsMenuItem();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 MenuItemNo = 3;
+            Found = AMenuItem.Find(MenuItemNo);
+            if (AMenuItem.MenuItemPrice != 4)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 }

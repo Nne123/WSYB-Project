@@ -16,60 +16,54 @@ namespace TestFramework
         }
 
         [TestMethod]
-        public void MenuItemListOK()
-        {
-            clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
-            List<clsMenuItem> TestList = new List<clsMenuItem>();
-            clsMenuItem TestItem = new clsMenuItem();
-            TestItem.MenuItemNo = 1;
-            TestItem.MenuItem = "Strawberry";
-            TestItem.MenuItemPrice = 3;
-            TestList.Add(TestItem);
-            AllMenuItems.MenuItemList = TestList;
-            Assert.AreEqual(AllMenuItems.MenuItemList, TestList); 
-        }
-
-        [TestMethod]
         public void CountPropertyOK()
         {
             clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
-            Int32 SomeCount = 2;
+            Int32 SomeCount = 3;
             AllMenuItems.Count = SomeCount;
             Assert.AreEqual(AllMenuItems.Count, SomeCount);
         }
 
         [TestMethod]
-        public void ThisMenuItemPropertyOK()
+        public void AllMenuItemsOK()
         {
-            clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
-            clsMenuItem TestMenuItem = new clsMenuItem();
-            TestMenuItem.MenuItemNo = 1;
-            TestMenuItem.MenuItem = "Strawberry";
-            TestMenuItem.MenuItemPrice = 3;
-            AllMenuItems.ThisMenuItem = TestMenuItem;
-            Assert.AreEqual(AllMenuItems.ThisMenuItem, TestMenuItem);
-        }
-
-        [TestMethod]
-        public void ListAndCountOK()
-        {
-            clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
+            clsMenuItemCollection MenuItems = new clsMenuItemCollection();
             List<clsMenuItem> TestList = new List<clsMenuItem>();
-            clsMenuItem TestMenuItem = new clsMenuItem();
-            TestMenuItem.MenuItemNo = 1;
-            TestMenuItem.MenuItem = "Strawberry";
-            TestMenuItem.MenuItemPrice = 3;
-            TestList.Add(TestMenuItem);
-            AllMenuItems.MenuItemList = TestList;
-            Assert.AreEqual(AllMenuItems.Count, TestList.Count);
+            clsMenuItem TestItem = new clsMenuItem();
+            TestItem.MenuItemNo = 1;
+            TestItem.MenuItem = "Grapes";
+            TestItem.MenuItemPrice = 4;
+            // add the item to the test list
+            TestList.Add(TestItem);
+            // assign the data to the property
+            MenuItems.AllMenuItems = TestList;
+            // test to see that the two values are the same
+            Assert.AreEqual(MenuItems.AllMenuItems, TestList);
         }
 
         [TestMethod]
-        public void TwoRecordsPresent()
+        public void CountMatchesListOK()
         {
-            clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
-            Assert.AreEqual(AllMenuItems.Count, 2);
+            clsMenuItemCollection MenuItems = new clsMenuItemCollection();
+            List<clsMenuItem> TestList = new List<clsMenuItem>();
+            clsMenuItem TestItem = new clsMenuItem();
+            TestItem.MenuItemNo = 1;
+            TestItem.MenuItem = "Grapes";
+            TestItem.MenuItemPrice = 4;
+            // add the item to the test list
+            TestList.Add(TestItem);
+            // assign the data to the property
+            MenuItems.AllMenuItems = TestList;
+            // test to see that the two values are the same
+            Assert.AreEqual(MenuItems.Count, TestList.Count);
         }
 
+
+        //[TestMethod]
+        //public void TwoMenuItemsPresent()
+        //{
+        //    clsMenuItemCollection MenuItems = new clsMenuItemCollection();
+        //    Assert.AreEqual(MenuItems.Count, 2);
+        //}
     }
 }
