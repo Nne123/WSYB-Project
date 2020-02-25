@@ -7,6 +7,9 @@ namespace ClassLibrary
 {
     public class clsMenuItemCollection
     {
+        List<clsMenuItem> mMenuItemList = new List<clsMenuItem>();
+        clsMenuItem mThisMenuItem = new clsMenuItem();
+
         // public constructor for the class
         public clsMenuItemCollection()
         {
@@ -19,49 +22,55 @@ namespace ClassLibrary
                 clsMenuItem AMenuItem = new clsMenuItem();
                 AMenuItem.MenuItem = DB.DataTable.Rows[Index]["MenuItem"].ToString();
                 AMenuItem.MenuItemPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["MenuItemPrice"]);
-                mAllMenuItems.Add(AMenuItem);
+                mMenuItemList.Add(AMenuItem);
                 Index++;
             }
-
-
-            //clsMenuItem AMenuItem = new clsMenuItem();
-            //AMenuItem.MenuItem = "Carrot";
-            //AMenuItem.MenuItemPrice = 6;
-            //mAllMenuItems.Add(AMenuItem);
-            //AMenuItem.MenuItem = "Peach";
-            //AMenuItem.MenuItemPrice = 2;
-            //mAllMenuItems.Add(AMenuItem);
-            //// list now contains two menu items
         }
 
 
-
-
-
-
-        private List<clsMenuItem> mAllMenuItems = new List<clsMenuItem>();
 
         public int Count
         {
             get
             {
-                return mAllMenuItems.Count;
+                return mMenuItemList.Count;
             }
             set
             {
                 
             }
         }
-        public List<clsMenuItem> AllMenuItems
+        public List<clsMenuItem> MenuItemList
         {
             get
             {
-                return mAllMenuItems;
+                return mMenuItemList;
             }
             set
             {
-                mAllMenuItems = value;
+                mMenuItemList = value;
             }
+        }
+
+        public clsMenuItem ThisMenuItem
+        {
+            get
+            {
+                return mThisMenuItem;
+            }
+            set
+            {
+                mThisMenuItem = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@MenuItem", mThisMenuItem.MenuItem);
+            DB.AddParameter("@MenuItemPrice", mThisMenuItem.MenuItemPrice);
+            // execute the query returning the primary key value
+            return DB.Execute("sproc_tblMenuItem_Insert");
         }
     }
 }
