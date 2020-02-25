@@ -7,9 +7,9 @@ namespace TestFramework
     [TestClass]
     public class tstMenuItem
     {
-        string MenuItemPrice = Convert.ToString(3);
         string MenuItem = "Apple";
-
+        string MenuItemPrice = Convert.ToString(3);
+        
 
         // The class exists
 
@@ -47,8 +47,8 @@ namespace TestFramework
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
-            string SomeMenuItem = "Strawberry";
-            Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
+            //string SomeMenuItem = "Strawberry";
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -157,7 +157,6 @@ namespace TestFramework
         }
 
 
-
         [TestMethod]
         public void MenuItemPriceMinLessOne()    // 0 int FAIL
         {
@@ -228,7 +227,7 @@ namespace TestFramework
             Int32 TestPrice;
             TestPrice = 11;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(MenuItemPrice, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -241,9 +240,22 @@ namespace TestFramework
             Int32 TestPrice;
             TestPrice = 100;
             string MenuItemPrice = TestPrice.ToString();
-            Error = AMenuItem.Valid(MenuItemPrice, MenuItemPrice);
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreNotEqual(Error, "");
         }
+
+
+        [TestMethod]
+        public void MenuItemPriceInvalidData()    // invalid data FAIL
+        {
+            clsMenuItem AMenuItem = new clsMenuItem();
+            String Error = "";
+            string MenuItemPrice = "This is not a price!";
+            Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
 
 
         [TestMethod]
