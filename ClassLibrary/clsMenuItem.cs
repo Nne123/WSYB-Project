@@ -42,16 +42,16 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string someMenuItem, string menuItemPrice)
+        public string Valid(string menuItem, string menuItemPrice)
         {
             string Error = "";
             Int32 MenuItemPrice;
 
-            if (someMenuItem.Length > 20)
+            if (menuItem.Length > 20)
             {
                 Error = "the menu item cannot be more than 20 characters";
             }
-            if (someMenuItem.Length < 5)
+            if (menuItem.Length < 5)
             {
                 Error = "The menu item may not be blank!";
             }
