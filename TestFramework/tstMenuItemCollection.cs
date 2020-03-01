@@ -125,5 +125,63 @@ namespace TestFramework
             Assert.AreEqual(AllMenuItems.ThisMenuItem, TestItem);
         }
 
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
+            // create some test data to assign to the property
+            clsMenuItem TestItem = new clsMenuItem();
+            // var to store the primary key
+            Int32 PrimaryKey = 0;
+            // set the properties of the test object
+            TestItem.MenuItemNo = 1;
+            TestItem.MenuItem = "Grapes";
+            TestItem.MenuItemPrice = 4;
+            // set this menu item to the test data
+            AllMenuItems.ThisMenuItem = TestItem;
+            // add the record
+            PrimaryKey = AllMenuItems.Add();
+            // set the primary key of the test data
+            TestItem.MenuItemNo = PrimaryKey;
+            // find the record
+            AllMenuItems.ThisMenuItem.Find(PrimaryKey);
+            // delete the record
+            AllMenuItems.Delete();
+            // now find the record
+            Boolean Found = AllMenuItems.ThisMenuItem.Find(PrimaryKey);
+            // test to see that the two values are the same
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
+            // create some test data to assign to the property
+            clsMenuItem TestItem = new clsMenuItem();
+            // var to store the primary key
+            Int32 PrimaryKey = 0;
+            // set the properties of the test object
+            TestItem.MenuItem = "Grapes";
+            TestItem.MenuItemPrice = 4;
+            // set this menu item to the test data
+            AllMenuItems.ThisMenuItem = TestItem;
+            // add the record
+            PrimaryKey = AllMenuItems.Add();
+            // set the primary key of the test data
+            TestItem.MenuItemNo = PrimaryKey;
+            // modify the test data
+            TestItem.MenuItem = "Qiwi";
+            TestItem.MenuItemPrice = 2;
+            // set the record based on the new test data
+            AllMenuItems.ThisMenuItem = TestItem;
+            // update the record
+            AllMenuItems.Update();
+            // find the record
+            AllMenuItems.ThisMenuItem.Find(PrimaryKey);
+            // test to see that the two values are the same
+            Assert.AreEqual(AllMenuItems.ThisMenuItem, TestItem);
+        }
+
     }
 }

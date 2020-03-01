@@ -23,9 +23,9 @@
 <p style="height: 64px">
     <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
 &nbsp;
-    <asp:Button ID="btnEdit" runat="server" Text="Edit" />
+    <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
 &nbsp;
-    <asp:Button ID="btnDelete" runat="server" Text="Delete" />
+    <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
     <br />
 </p>
 </asp:Content>
