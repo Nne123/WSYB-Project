@@ -64,11 +64,11 @@ namespace TestFramework
         // menu item min less one
 
         [TestMethod]
-        public void MenuItemMinLessOne()    // 4 char FAIL
+        public void MenuItemMinLessOne()    // 0 char FAIL
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
-            string SomeMenuItem = "aaaa";
+            string SomeMenuItem = "";
             Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
             Assert.AreNotEqual(Error, "");
         }
@@ -76,11 +76,11 @@ namespace TestFramework
         // menu item min boundary
 
         [TestMethod]
-        public void MenuItemMinBoundary()  // 5 char PASS
+        public void MenuItemMinBoundary()  // 1 char PASS
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
-            string SomeMenuItem = "aaaaa";
+            string SomeMenuItem = "a";
             Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
         }
@@ -88,11 +88,11 @@ namespace TestFramework
         // menu item min plus one
 
         [TestMethod]
-        public void MenuItemMinPlusOne()   // 6 char  PASS
+        public void MenuItemMinPlusOne()   // 2 char  PASS
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
-            string SomeMenuItem = "aaaaaa";
+            string SomeMenuItem = "aa";
             Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
         }
@@ -136,11 +136,11 @@ namespace TestFramework
         // menu item mid
 
         [TestMethod]
-        public void MenuItemMid()   // 12 char  PASS
+        public void MenuItemMid()   // 10 char  PASS
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
-            string SomeMenuItem = "aaaaaaaaaaaa";
+            string SomeMenuItem = "aaaaaaaaaa";
             Error = AMenuItem.Valid(SomeMenuItem, MenuItemPrice);
             Assert.AreEqual(Error, "");
         }
@@ -250,6 +250,7 @@ namespace TestFramework
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             String Error = "";
+            string MenuItem = "Kiwi";
             string MenuItemPrice = "This is not a price!";
             Error = AMenuItem.Valid(MenuItem, MenuItemPrice);
             Assert.AreNotEqual(Error, "");

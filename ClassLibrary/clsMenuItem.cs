@@ -51,7 +51,7 @@ namespace ClassLibrary
             {
                 Error = "the menu item cannot be more than 20 characters";
             }
-            if (menuItem.Length < 5)
+            if (menuItem.Length < 1)
             {
                 Error = "The menu item may not be blank!";
             }
@@ -77,13 +77,18 @@ namespace ClassLibrary
             return Error;
         }
 
-        public bool Find(int menuItemNo)
+        public bool Find(int MenuItemNo)
         {
+            // create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@MenuItemNo", menuItemNo);
+            // add the parameter for the menu item no to search for
+            DB.AddParameter("@MenuItemNo", MenuItemNo);
+            // execute the stored procedure
             DB.Execute("sproc_tblMenuItem_FilterByMenuItemNo");
+            // if one record is found (there should be either one or zero!)
             if (DB.Count == 1)
             {
+                // copy the data from the database to the private data members
                 mMenuItemNo = Convert.ToInt32(DB.DataTable.Rows[0]["MenuItemNo"]);
                 mMenuItem = Convert.ToString(DB.DataTable.Rows[0]["MenuItem"]);
                 mMenuItemPrice = Convert.ToInt32(DB.DataTable.Rows[0]["MenuItemPrice"]);

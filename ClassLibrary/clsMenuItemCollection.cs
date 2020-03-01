@@ -8,6 +8,7 @@ namespace ClassLibrary
     public class clsMenuItemCollection
     {
         List<clsMenuItem> mMenuItemList = new List<clsMenuItem>();
+
         clsMenuItem mThisMenuItem = new clsMenuItem();
 
         // public constructor for the class
@@ -37,7 +38,7 @@ namespace ClassLibrary
             }
             set
             {
-                
+                // worry about later
             }
         }
         public List<clsMenuItem> MenuItemList
@@ -72,5 +73,22 @@ namespace ClassLibrary
             // execute the query returning the primary key value
             return DB.Execute("sproc_tblMenuItem_Insert");
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@MenuItemNo", mThisMenuItem.MenuItemNo);
+            DB.Execute("sproc_tblMenuItem_Delete");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@MenuItemNo", mThisMenuItem.MenuItemNo);
+            DB.AddParameter("@MenuItem", mThisMenuItem.MenuItem);
+            DB.AddParameter("@MenuItemPrice", mThisMenuItem.MenuItemPrice);
+            DB.Execute("sproc_tblMenuItem_Update");
+        }
+
     }
 }
