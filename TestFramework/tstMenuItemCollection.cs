@@ -19,7 +19,7 @@ namespace TestFramework
         public void CountPropertyOK()
         {
             clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
-            Int32 SomeCount = 25;
+            Int32 SomeCount = 7;
             AllMenuItems.Count = SomeCount;
             Assert.AreEqual(AllMenuItems.Count, SomeCount);
         }

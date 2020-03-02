@@ -52,6 +52,11 @@ public partial class AnOrder : System.Web.UI.Page
             OrderBook.ThisOrder.FirstMenuItem = Convert.ToInt32(ddlFirstMenuItem.SelectedValue);
             OrderBook.ThisOrder.SecondMenuItem = Convert.ToInt32(ddlSecondMenuItem.SelectedValue);
             OrderBook.ThisOrder.ThirdMenuItem = Convert.ToInt32(ddlThirdMenuItem.SelectedValue);
+
+            //if  ( OrderBook.ThisOrder.F)
+
+            //OrderBook.ThisOrder.FirstPrice = Convert.ToInt32(ddlFirstMenuItem.Text);
+
             //OrderBook.ThisOrder.FirstPrice = Convert.ToInt32(lblFirstPrice);
             //OrderBook.ThisOrder.SecondPrice = Convert.ToInt32(lblSecondPrice);
             //OrderBook.ThisOrder.ThirdPrice = Convert.ToInt32(lblThirdPrice);
