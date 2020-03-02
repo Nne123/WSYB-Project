@@ -47,6 +47,7 @@
     <Compile Include="clsMenuItem.cs" />
     <Compile Include="clsMenuItemCollection.cs" />
     <Compile Include="clsOrder.cs" />
+    <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsSecurity.cs" />
     <Compile Include="clsStaff.cs" />
     <Compile Include="clsStaffCollection.cs" />

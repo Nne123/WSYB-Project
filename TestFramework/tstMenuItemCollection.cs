@@ -15,17 +15,17 @@ namespace TestFramework
             Assert.IsNotNull(AllMenuItems);
         }
 
-        //[TestMethod]
-        //public void CountPropertyOK()
-        //{
-        //    clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
-        //    Int32 SomeCount = 3;
-        //    AllMenuItems.Count = SomeCount;
-        //    Assert.AreEqual(AllMenuItems.Count, SomeCount);
-        //}
+        [TestMethod]
+        public void CountPropertyOK()
+        {
+            clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
+            Int32 SomeCount = 25;
+            AllMenuItems.Count = SomeCount;
+            Assert.AreEqual(AllMenuItems.Count, SomeCount);
+        }
 
         [TestMethod]
-        public void MenuItemListOK()  // MenuItemListOK
+        public void AllMenuItemsOK()  
         {
             clsMenuItemCollection MenuItems = new clsMenuItemCollection();
             List<clsMenuItem> TestList = new List<clsMenuItem>();
@@ -36,9 +36,9 @@ namespace TestFramework
             // add the item to the test list
             TestList.Add(TestItem);
             // assign the data to the property
-            MenuItems.MenuItemList = TestList;
+            MenuItems.AllMenuItems = TestList;
             // test to see that the two values are the same
-            Assert.AreEqual(MenuItems.MenuItemList, TestList);
+            Assert.AreEqual(MenuItems.AllMenuItems, TestList);
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace TestFramework
             // add the item to the test list
             TestList.Add(TestItem);
             // assign the data to the property
-            MenuItems.MenuItemList = TestList;
+            MenuItems.AllMenuItems = TestList;
             // test to see that the two values are the same
             Assert.AreEqual(MenuItems.Count, TestList.Count);
         }
@@ -63,7 +63,7 @@ namespace TestFramework
         //public void TwoMenuItemsPresent()
         //{
         //    clsMenuItemCollection MenuItems = new clsMenuItemCollection();
-        //    Assert.AreEqual(MenuItems.Count, 2);
+        //    Assert.AreEqual(MenuItems.Count, 23);
         //}
 
 

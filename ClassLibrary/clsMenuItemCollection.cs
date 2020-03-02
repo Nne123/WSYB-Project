@@ -7,7 +7,7 @@ namespace ClassLibrary
 {
     public class clsMenuItemCollection
     {
-        List<clsMenuItem> mMenuItemList = new List<clsMenuItem>();
+        private List<clsMenuItem> mAllMenuItems = new List<clsMenuItem>();
 
         clsMenuItem mThisMenuItem = new clsMenuItem();
 
@@ -21,9 +21,10 @@ namespace ClassLibrary
             while (Index < RecordCount)
             {
                 clsMenuItem AMenuItem = new clsMenuItem();
-                AMenuItem.MenuItem = DB.DataTable.Rows[Index]["MenuItem"].ToString();
                 AMenuItem.MenuItemPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["MenuItemPrice"]);
-                mMenuItemList.Add(AMenuItem);
+                AMenuItem.MenuItem = DB.DataTable.Rows[Index]["MenuItem"].ToString();
+                AMenuItem.MenuItemNo = Convert.ToInt32(DB.DataTable.Rows[Index]["MenuItemNo"]);
+                mAllMenuItems.Add(AMenuItem);
                 Index++;
             }
         }
@@ -34,22 +35,22 @@ namespace ClassLibrary
         {
             get
             {
-                return mMenuItemList.Count;
+                return mAllMenuItems.Count;
             }
             set
             {
                 // worry about later
             }
         }
-        public List<clsMenuItem> MenuItemList
+        public List<clsMenuItem> AllMenuItems
         {
             get
             {
-                return mMenuItemList;
+                return mAllMenuItems;
             }
             set
             {
-                mMenuItemList = value;
+                mAllMenuItems = value;
             }
         }
 
