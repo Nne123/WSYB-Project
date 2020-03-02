@@ -19,7 +19,7 @@ public partial class MenuDefault : System.Web.UI.Page
     void DisplayMenuItems()
     {
         clsMenuItemCollection MenuItems = new clsMenuItemCollection();
-        lstMenuItems.DataSource = MenuItems.MenuItemList;
+        lstMenuItems.DataSource = MenuItems.AllMenuItems;
         lstMenuItems.DataValueField = "MenuItemNo";
         lstMenuItems.DataTextField = "MenuItem";
         // bind the data to the list
