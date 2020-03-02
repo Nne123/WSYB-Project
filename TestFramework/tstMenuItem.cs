@@ -264,7 +264,7 @@ namespace TestFramework
         {
             clsMenuItem AMenuItem = new clsMenuItem();
             Boolean Found = false;
-            Int32 MenuItemNo = 3;
+            Int32 MenuItemNo = 1;
             //invoke the method
             Found = AMenuItem.Find(MenuItemNo);
             Assert.IsTrue(Found);
@@ -279,9 +279,9 @@ namespace TestFramework
             clsMenuItem AMenuItem = new clsMenuItem();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 MenuItemNo = 3;
+            Int32 MenuItemNo = 1;
             Found = AMenuItem.Find(MenuItemNo);
-            if (AMenuItem.MenuItemNo != 3)
+            if (AMenuItem.MenuItemNo != 1)
             {
                 OK = false;
             }
@@ -295,9 +295,9 @@ namespace TestFramework
             clsMenuItem AMenuItem = new clsMenuItem();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 MenuItemNo = 3;
+            Int32 MenuItemNo = 1;
             Found = AMenuItem.Find(MenuItemNo);
-            if (AMenuItem.MenuItem != "Pear")
+            if (AMenuItem.MenuItem != "Mango")
             {
                 OK = false;
             }
@@ -312,9 +312,9 @@ namespace TestFramework
             clsMenuItem AMenuItem = new clsMenuItem();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 MenuItemNo = 3;
+            Int32 MenuItemNo = 1;
             Found = AMenuItem.Find(MenuItemNo);
-            if (AMenuItem.MenuItemPrice != 4)
+            if (AMenuItem.MenuItemPrice != 5)
             {
                 OK = false;
             }
