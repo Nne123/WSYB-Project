@@ -36,6 +36,9 @@ public partial class AnOrder : System.Web.UI.Page
         ddlSecondMenuItem.DataBind();
         ddlThirdMenuItem.DataBind();
 
+        //lblFirstPrice.ToString = "FirstChoice";
+        //Convert.ToString(lblFirstPrice.Text);
+
         lblFirstPrice.DataBind();
         lblSecondPrice.DataBind();
         lblThirdPrice.DataBind();
