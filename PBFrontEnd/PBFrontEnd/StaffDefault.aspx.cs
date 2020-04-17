@@ -52,13 +52,6 @@ public partial class StaffDefault : System.Web.UI.Page
         }
 
         return RecordCount;
-
-        //clsStaffCollection Staff = new clsStaffCollection();
-        //lstStaff.DataSource = Staff.StaffList;
-        //lstStaff.DataValueField = "StaffNo";
-        //lstStaff.DataTextField = "StaffLastName";
-        //// bind the data to the list
-        //lstStaff.DataBind();
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)

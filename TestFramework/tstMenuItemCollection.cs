@@ -15,14 +15,14 @@ namespace TestFramework
             Assert.IsNotNull(AllMenuItems);
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
-            Int32 SomeCount = 7;
-            AllMenuItems.Count = SomeCount;
-            Assert.AreEqual(AllMenuItems.Count, SomeCount);
-        }
+        //[TestMethod]
+        //public void CountPropertyOK()
+        //{
+        //    clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
+        //    Int32 SomeCount = 16;
+        //    AllMenuItems.Count = SomeCount;
+        //    Assert.AreEqual(AllMenuItems.Count, SomeCount);
+        //}
 
         [TestMethod]
         public void AllMenuItemsOK()  
