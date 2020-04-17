@@ -24,9 +24,9 @@ namespace ClassLibrary
                 clsOrder AnOrder = new clsOrder();
                 // read in the fields from the current record
                 AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
-                AnOrder.FirstMenuItem = Convert.ToInt32(DB.DataTable.Rows[Index]["FirstMenuItem"]);
-                AnOrder.SecondMenuItem = Convert.ToInt32(DB.DataTable.Rows[Index]["SecondMenuItem"]);
-                AnOrder.ThirdMenuItem = Convert.ToInt32(DB.DataTable.Rows[Index]["ThirdMenuItem"]);
+                AnOrder.FirstChoice = Convert.ToInt32(DB.DataTable.Rows[Index]["FirstChoice"]);
+                AnOrder.SecondChoice = Convert.ToInt32(DB.DataTable.Rows[Index]["SecondChoice"]);
+                AnOrder.ThirdChoice = Convert.ToInt32(DB.DataTable.Rows[Index]["ThirdChoice"]);
                 AnOrder.FirstPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["FirstPrice"]);
                 AnOrder.SecondPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["SecondPrice"]);
                 AnOrder.ThirdPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["ThirdPrice"]);
@@ -105,14 +105,36 @@ namespace ClassLibrary
         public int Add()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@FirstMenuItem", mThisOrder.FirstMenuItem);
-            DB.AddParameter("@SecondMenuItem", mThisOrder.SecondMenuItem);
-            DB.AddParameter("@ThirdMenuItem", ThisOrder.ThirdMenuItem);
+            DB.AddParameter("@FirstChoice", mThisOrder.FirstChoice);
+            DB.AddParameter("@SecondChoice", mThisOrder.SecondChoice);
+            DB.AddParameter("@ThirdChoice", ThisOrder.ThirdChoice);
             DB.AddParameter("@FirstPrice", ThisOrder.FirstPrice);
             DB.AddParameter("@SecondPrice", ThisOrder.SecondPrice);
             DB.AddParameter("@ThirdPrice", ThisOrder.ThirdPrice);
             DB.AddParameter("@OrderTotal", ThisOrder.OrderTotal);
             return DB.Execute("sproc_tblOrder_Insert");
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            DB.Execute("sproc_tblOrder_Delete");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("@FirstChoice", mThisOrder.FirstChoice);
+            DB.AddParameter("@SecondChoice", mThisOrder.SecondChoice);
+            DB.AddParameter("@ThirdChoice", ThisOrder.ThirdChoice);
+            DB.AddParameter("@FirstPrice", ThisOrder.FirstPrice);
+            DB.AddParameter("@SecondPrice", ThisOrder.SecondPrice);
+            DB.AddParameter("@ThirdPrice", ThisOrder.ThirdPrice);
+            DB.AddParameter("@OrderTotal", ThisOrder.OrderTotal);
+            // execute the stored procedure
+            DB.Execute("sproc_tblOrder_Update");
         }
     }
 }

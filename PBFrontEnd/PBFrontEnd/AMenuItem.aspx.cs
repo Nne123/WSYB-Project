@@ -38,7 +38,7 @@ public partial class AMenuItem : System.Web.UI.Page
     {
         clsMenuItemCollection MenuItemBook = new clsMenuItemCollection();
         // validate the data on the web form
-        String Error = MenuItemBook.ThisMenuItem.Valid(txtMenuItem.Text, txtPrice.Text);
+        String Error = MenuItemBook.ThisMenuItem.Valid(txtMenuItem.Text , txtPrice.Text);
         // if the data is OK then add it to the object
         if (Error == "")
         {

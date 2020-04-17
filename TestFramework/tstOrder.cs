@@ -30,42 +30,42 @@ namespace TestFramework
         }
 
         [TestMethod]
-        public void FirstMenuItemOK()
+        public void FirstChoiceOK()
         {
             // create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             // create some test data to assign to the property
             Int32 TestData = 1;
             // assign the data to the property
-            AnOrder.FirstMenuItem = TestData;
+            AnOrder.FirstChoice = TestData;
             // test to see that the two values are the same
-            Assert.AreEqual(AnOrder.FirstMenuItem, TestData);
+            Assert.AreEqual(AnOrder.FirstChoice, TestData);
         }
 
         [TestMethod]
-        public void SecondMenuItemOK()
+        public void SecondChoiceOK()
         {
             // create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             // create some test data to assign to the property
             Int32 TestData = 2;
             // assign the data to the property
-            AnOrder.SecondMenuItem = TestData;
+            AnOrder.SecondChoice = TestData;
             // test to see that the two values are the same
-            Assert.AreEqual(AnOrder.SecondMenuItem, TestData);
+            Assert.AreEqual(AnOrder.SecondChoice, TestData);
         }
 
         [TestMethod]
-        public void ThirdtMenuItemOK()
+        public void ThirdChoiceOK()
         {
             // create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             // create some test data to assign to the property
             Int32 TestData = 3;
             // assign the data to the property
-            AnOrder.ThirdMenuItem = TestData;
+            AnOrder.ThirdChoice = TestData;
             // test to see that the two values are the same
-            Assert.AreEqual(AnOrder.ThirdMenuItem, TestData);
+            Assert.AreEqual(AnOrder.ThirdChoice, TestData);
         }
 
 
@@ -160,7 +160,7 @@ namespace TestFramework
         }
 
         [TestMethod]
-        public void TestFirstMenuItemFound()
+        public void TestFirstChoiceFound()
         {
             // create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
@@ -173,7 +173,7 @@ namespace TestFramework
             // invoke the method
             Found = AnOrder.Find(OrderNo);
             // check the first menu item
-            if (AnOrder.FirstMenuItem != 1)
+            if (AnOrder.FirstChoice != 1)
             {
                 OK = false;
             }
@@ -182,7 +182,7 @@ namespace TestFramework
         }
 
         [TestMethod]
-        public void TestSecondMenuItemFound()
+        public void TestSecondChoiceFound()
         {
             // create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
@@ -195,7 +195,7 @@ namespace TestFramework
             // invoke the method
             Found = AnOrder.Find(OrderNo);
             // check the second menu item
-            if (AnOrder.SecondMenuItem != 2)
+            if (AnOrder.SecondChoice != 2)
             {
                 OK = false;
             }
@@ -204,7 +204,7 @@ namespace TestFramework
         }
 
         [TestMethod]
-        public void TestThirdMenuItemFound()
+        public void TestThirdChoiceFound()
         {
             // create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
@@ -217,7 +217,7 @@ namespace TestFramework
             // invoke the method
             Found = AnOrder.Find(OrderNo);
             // check the third menu item
-            if (AnOrder.ThirdMenuItem != 3)
+            if (AnOrder.ThirdChoice != 3)
             {
                 OK = false;
             }
@@ -313,6 +313,13 @@ namespace TestFramework
             Assert.IsTrue(OK);
         }
 
+        // good test data
+        // create some test data to pass to the method
+        string FirstPrice = Convert.ToString(3);
+        string SecondPrice = Convert.ToString(4);
+        string ThirdPrice = Convert.ToString(5);
+        string OrderTotal = Convert.ToString(12);
+
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -321,8 +328,385 @@ namespace TestFramework
             // create some test data to assign to the property
             String Error = "";
             // invoke the method
-            Error = AnOrder.Valid();
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstChoiceMinLessOneOK()     
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 0;
+            string FirstPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstChoiceMinBoundaryOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 1;
+            string FirstPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void FirstChoiceMinPlusOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 2;
+            string FirstPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void FirstChoiceMaxLessOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 9;
+            string FirstPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void FirstChoiceMaxBoundaryOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 10;
+            string FirstPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void FirstChoiceMaxPlusOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 11;
+            string FirstPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SecondChoiceMinLessOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 0;
+            string SecondPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SecondChoiceMinBoundaryOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 1;
+            string SecondPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SecondChoiceMinPlusOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 2;
+            string SecondPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SecondChoiceMaxLessOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 9;
+            string SecondPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SecondChoiceMaxBoundaryOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 10;
+            string SecondPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SecondChoiceMaxPlusOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 11;
+            string SecondPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ThirdChoiceMinLessOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 0;
+            string ThirdPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ThirdChoiceMinBoundaryOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 1;
+            string ThirdPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ThirdChoiceMinPlusOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 2;
+            string ThirdPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ThirdChoiceMaxLessOneOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 9;
+            string ThirdPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ThirdChoiceMaxBoundaryOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 10;
+            string ThirdPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ThirdChoiceMaxPlusOK()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            Int32 TestPrice;
+            TestPrice = 11;
+            string ThirdPrice = TestPrice.ToString();
+            // invoke the method
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            // test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void FirstChoiceInvalidData()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            string FirstPrice = "This is not a price!";
+            string SecondPrice = Convert.ToString(1);
+            string ThirdPrice = Convert.ToString(2);
+            string OrderTotal = Convert.ToString(7);
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            Assert.AreNotEqual(Error, "");          
+        }
+
+        [TestMethod]
+        public void SecondChoiceInvalidData()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            string FirstPrice = Convert.ToString(1);
+            string SecondPrice = "This is not a price!";
+            string ThirdPrice = Convert.ToString(2);
+            string OrderTotal = Convert.ToString(7);
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ThirdChoiceInvalidData()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            string FirstPrice = Convert.ToString(1);
+            string SecondPrice = Convert.ToString(2);
+            string ThirdPrice = "This is not a price!";
+            string OrderTotal = Convert.ToString(7);
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderTotlaInvalidData()
+        {
+            // create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            string FirstPrice = Convert.ToString(1);
+            string SecondPrice = Convert.ToString(7);
+            string ThirdPrice = Convert.ToString(2);
+            string OrderTotal = "This is not a price!";
+            Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            Assert.AreNotEqual(Error, "");
         }
     }
 }

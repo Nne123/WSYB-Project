@@ -29,6 +29,42 @@ namespace ClassLibrary
             }
         }
 
+        public void ReportByMenuItem(string MenuItem)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@MenuItem", MenuItem);
+            DB.Execute("sproc_tblMenuItem_FilterByMenuItem");
+            PopulateArray(DB);
+        }
+
+        void PopulateArray (clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mAllMenuItems = new List<clsMenuItem>();
+            while (Index < RecordCount)
+            {
+                clsMenuItem AMenuItem = new clsMenuItem();
+                AMenuItem.MenuItem = Convert.ToString(DB.DataTable.Rows[Index]["MenuItem"]);
+                AMenuItem.MenuItemNo = Convert.ToInt32(DB.DataTable.Rows[Index]["MenuItemNo"]);
+                AMenuItem.MenuItemPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["MenuItemPrice"]);
+
+                mAllMenuItems.Add(AMenuItem);
+
+                Index++;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
 
 
         public int Count
@@ -47,11 +83,13 @@ namespace ClassLibrary
             get
             {
                 return mAllMenuItems;
+                
             }
             set
             {
                 mAllMenuItems = value;
             }
+            
         }
 
         public clsMenuItem ThisMenuItem

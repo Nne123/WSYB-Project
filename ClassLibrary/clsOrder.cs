@@ -8,9 +8,9 @@ namespace ClassLibrary
     public class clsOrder
     {
         private Int32 mOrderNo;
-        private Int32 mFirstMenuItem;
-        private Int32 mSecondMenuItem;
-        private Int32 mThirdMenuItem;
+        private Int32 mFirstChoice;
+        private Int32 mSecondChoice;
+        private Int32 mThirdChoice;
         private Int32 mFirstPrice;
         private Int32 mSecondPrice;
         private Int32 mThirdPrice;
@@ -32,37 +32,37 @@ namespace ClassLibrary
 
 
 
-        public int FirstMenuItem
+        public int FirstChoice
         {
             get
             {
-                return mFirstMenuItem;
+                return mFirstChoice;
             }
             set
             {
-                mFirstMenuItem = value;
+                mFirstChoice = value;
             }
         }
-        public int SecondMenuItem
+        public int SecondChoice
         {
             get
             {
-                return mSecondMenuItem;
+                return mSecondChoice;
             }
             set
             {
-                mSecondMenuItem = value;
+                mSecondChoice = value;
             }
         }
-        public int ThirdMenuItem
+        public int ThirdChoice
         {
             get
             {
-                return mThirdMenuItem;
+                return mThirdChoice;
             }
             set
             {
-                mThirdMenuItem = value;
+                mThirdChoice = value;
             }
         }
         public int FirstPrice
@@ -117,9 +117,9 @@ namespace ClassLibrary
             if (DB.Count == 1)
             {
                 mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
-                mFirstMenuItem = Convert.ToInt32(DB.DataTable.Rows[0]["FirstMenuItem"]);
-                mSecondMenuItem = Convert.ToInt32(DB.DataTable.Rows[0]["SecondMenuItem"]);
-                mThirdMenuItem = Convert.ToInt32(DB.DataTable.Rows[0]["ThirdMenuItem"]);
+                mFirstChoice = Convert.ToInt32(DB.DataTable.Rows[0]["FirstChoice"]);
+                mSecondChoice = Convert.ToInt32(DB.DataTable.Rows[0]["SecondChoice"]);
+                mThirdChoice = Convert.ToInt32(DB.DataTable.Rows[0]["ThirdChoice"]);
                 mFirstPrice = Convert.ToInt32(DB.DataTable.Rows[0]["FirstPrice"]);
                 mSecondPrice = Convert.ToInt32(DB.DataTable.Rows[0]["SecondPrice"]);
                 mThirdPrice = Convert.ToInt32(DB.DataTable.Rows[0]["ThirdPrice"]);
@@ -135,9 +135,71 @@ namespace ClassLibrary
             
         }
 
-        public string Valid()
+        public string Valid(string firstPrice, string secondPrice, string thirdPrice, string orderTotal)
         {
-            return "";
+            // create a string variable to store the error
+            String Error = "";
+            // create a temporary variable to store the FirstPrice
+            Int32 FirstPriceTemp;
+            Int32 SecondPriceTemp;
+            Int32 ThirdPriceTemp;
+            Int32 OrderTotalTemp;
+
+            // if the FirstPrice is blank
+            try
+            {
+                FirstPriceTemp = Convert.ToInt32(firstPrice);
+                if (FirstPriceTemp < 1)
+                {
+                    Error = Error + "The price cannot be in the past £1 : ";
+                }
+
+                if (FirstPriceTemp > 10)
+                {
+                    Error = Error + "The price cannot be more than £10 : ";
+                }
+
+                SecondPriceTemp = Convert.ToInt32(secondPrice);
+                if (SecondPriceTemp < 1)
+                {
+                    Error = Error + "The price cannot be less than £1 : ";
+                }
+
+                if (SecondPriceTemp > 10)
+                {
+                    Error = Error + "The price cannot be more than £10 : ";
+                }
+
+
+                ThirdPriceTemp = Convert.ToInt32(thirdPrice);
+                if (ThirdPriceTemp < 1)
+                {
+                    Error = Error + "The price cannot be less than £1 : ";
+                }
+
+                if (ThirdPriceTemp > 10)
+                {
+                    Error = Error + "The price cannot be more than £10 : ";
+                }
+
+
+                OrderTotalTemp = Convert.ToInt32(orderTotal);
+                if (OrderTotalTemp < 1)
+                {
+                    Error = Error + "The total cannot be less than £1 : ";
+                }
+
+                if (OrderTotalTemp > 30)
+                {
+                    Error = Error + "The total cannot be more than £30 : ";
+                }
+            }
+            catch
+            {
+                // record the error
+                Error = Error + "The price was not a valid price : ";
+            }
+            return Error;
         }
     }
 }

@@ -11,7 +11,9 @@ namespace TestFramework
         [TestMethod]
         public void InstanceOK()
         {
+            // create an instance of the class 
             clsOrderCollection AllOrders = new clsOrderCollection();
+            // test to see that it exists
             Assert.IsNotNull(AllOrders);
         }
 
@@ -28,9 +30,9 @@ namespace TestFramework
             clsOrder TestItem = new clsOrder();
             // set its properties
             TestItem.OrderNo = 2;
-            TestItem.FirstMenuItem = 3;
-            TestItem.SecondMenuItem = 2;
-            TestItem.ThirdMenuItem = 1;
+            TestItem.FirstChoice = 3;
+            TestItem.SecondChoice = 2;
+            TestItem.ThirdChoice = 1;
             TestItem.FirstPrice = 3;
             TestItem.SecondPrice = 2;
             TestItem.ThirdPrice = 1;
@@ -47,7 +49,7 @@ namespace TestFramework
         //public void CountPropertyOK()
         //{
         //    clsOrderCollection AllOrders = new clsOrderCollection();
-        //    Int32 SomeCount = 1;
+        //    Int32 SomeCount = 3;
         //    AllOrders.Count = SomeCount;
         //    Assert.AreEqual(AllOrders.Count, SomeCount);
         //}
@@ -59,9 +61,9 @@ namespace TestFramework
             clsOrder TestOrder = new clsOrder();
             // set the properties of the test object
             TestOrder.OrderNo = 2;
-            TestOrder.FirstMenuItem = 3;
-            TestOrder.SecondMenuItem = 2;
-            TestOrder.ThirdMenuItem = 1;
+            TestOrder.FirstChoice = 3;
+            TestOrder.SecondChoice = 2;
+            TestOrder.ThirdChoice = 1;
             TestOrder.FirstPrice = 3;
             TestOrder.SecondPrice = 2;
             TestOrder.ThirdPrice = 1;
@@ -79,9 +81,9 @@ namespace TestFramework
             List<clsOrder> TestList = new List<clsOrder>();
             clsOrder TestItem = new clsOrder();
             TestItem.OrderNo = 2;
-            TestItem.FirstMenuItem = 3;
-            TestItem.SecondMenuItem = 2;
-            TestItem.ThirdMenuItem = 1;
+            TestItem.FirstChoice = 3;
+            TestItem.SecondChoice = 2;
+            TestItem.ThirdChoice = 1;
             TestItem.FirstPrice = 3;
             TestItem.SecondPrice = 2;
             TestItem.ThirdPrice = 1;
@@ -98,7 +100,7 @@ namespace TestFramework
         //public void TwoOrdersPresentOK()
         //{
         //    clsOrderCollection AllOrders = new clsOrderCollection();
-        //    Assert.AreEqual(AllOrders.Count, 2);
+        //    Assert.AreEqual(AllOrders.Count, 4);
         //}
 
         [TestMethod]
@@ -108,9 +110,9 @@ namespace TestFramework
             clsOrder TestItem = new clsOrder();
             Int32 PrimaryKey = 0;
             TestItem.OrderNo = 1;
-            TestItem.FirstMenuItem = 3;
-            TestItem.SecondMenuItem = 2;
-            TestItem.ThirdMenuItem = 1;
+            TestItem.FirstChoice = 3;
+            TestItem.SecondChoice = 2;
+            TestItem.ThirdChoice = 1;
             TestItem.FirstPrice = 1;
             TestItem.SecondPrice = 3;
             TestItem.ThirdPrice = 4;
@@ -125,6 +127,75 @@ namespace TestFramework
             AllOrders.ThisOrder.Find(PrimaryKey);
             // test to see that the two values are the same
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 0;
+            TestItem.OrderNo = 1;
+            TestItem.FirstChoice = 3;
+            TestItem.SecondChoice = 2;
+            TestItem.ThirdChoice = 1;
+            TestItem.FirstPrice = 1;
+            TestItem.SecondPrice = 3;
+            TestItem.ThirdPrice = 4;
+            TestItem.OrderTotal = 8;
+            // set this order to the test data
+            AllOrders.ThisOrder = TestItem;
+            // add the record
+            PrimaryKey = AllOrders.Add();
+            // set the primary key of the test data
+            TestItem.OrderNo = PrimaryKey;
+            // modify the test data
+            TestItem.FirstChoice = 7;
+            TestItem.SecondChoice = 7;
+            TestItem.ThirdChoice = 7;
+            TestItem.FirstPrice = 4;
+            TestItem.SecondPrice = 4;
+            TestItem.ThirdPrice = 4;
+            TestItem.OrderTotal = 12;
+            // set record based on the new test data
+            AllOrders.ThisOrder = TestItem;
+            // update the record
+            AllOrders.Update();
+            // find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            // test to see that the two values are the same
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 0;
+            // set its properties
+            TestItem.OrderNo = 1;
+            TestItem.FirstChoice = 3;
+            TestItem.SecondChoice = 2;
+            TestItem.ThirdChoice = 1;
+            TestItem.FirstPrice = 1;
+            TestItem.SecondPrice = 3;
+            TestItem.ThirdPrice = 4;
+            TestItem.OrderTotal = 8;
+            // set this order to the test data
+            AllOrders.ThisOrder = TestItem;
+            // add the record
+            PrimaryKey = AllOrders.Add();
+            // set the primary key of the test data
+            TestItem.OrderNo = PrimaryKey;
+            // find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            // delete the record
+            AllOrders.Delete();
+            // now find the record
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            // test to see that the two values are the same
+            Assert.IsFalse(Found);
         }
 
     }

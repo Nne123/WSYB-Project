@@ -10,20 +10,47 @@ public partial class MenuDefault : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //clear any existing error messages
+        lblError.Text = "";
+        //if this is the first time the page has been displayed
         if (IsPostBack == false)
         {
-            DisplayMenuItems();
+            lblError.Text = DisplayMenuItems("") + " records in the database ";
         }
     }
 
-    void DisplayMenuItems()
+    Int32 DisplayMenuItems(string MenuItemFilter)
     {
-        clsMenuItemCollection MenuItems = new clsMenuItemCollection();
-        lstMenuItems.DataSource = MenuItems.AllMenuItems;
-        lstMenuItems.DataValueField = "MenuItemNo";
-        lstMenuItems.DataTextField = "MenuItem";
-        // bind the data to the list
-        lstMenuItems.DataBind();
+        clsMenuItemCollection MyMenuItemBook = new clsMenuItemCollection();
+        Int32 RecordCount;
+        string MenuItem;
+        string MenuItemPrice;
+        string MenuItemNo;
+        Int32 Index = 0;
+        lstMenuItems.Items.Clear();
+        MyMenuItemBook.ReportByMenuItem(MenuItemFilter);
+        RecordCount = MyMenuItemBook.Count;
+        while (Index < RecordCount)
+        {
+            MenuItem = Convert.ToString(MyMenuItemBook.AllMenuItems[Index].MenuItem);
+            MenuItemPrice = Convert.ToString(MyMenuItemBook.AllMenuItems[Index].MenuItemPrice);
+            MenuItemNo = Convert.ToString(MyMenuItemBook.AllMenuItems[Index].MenuItemNo);
+
+            ListItem NewItem = new ListItem(MenuItem + " ", MenuItemNo);
+
+            lstMenuItems.Items.Add(NewItem);
+
+            Index++;
+        }
+
+        return RecordCount;
+
+        //clsMenuItemCollection MenuItems = new clsMenuItemCollection();
+        //lstMenuItems.DataSource = MenuItems.AllMenuItems;
+        //lstMenuItems.DataValueField = "MenuItemNo";
+        //lstMenuItems.DataTextField = "MenuItem";
+        //// bind the data to the list
+        //lstMenuItems.DataBind();
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -73,6 +100,20 @@ public partial class MenuDefault : System.Web.UI.Page
 
     protected void btnApply_Click(object sender, EventArgs e)
     {
+        Int32 RecordCount;
+        RecordCount = DisplayMenuItems(txtMenuItem.Text);
+        lblError.Text = RecordCount + " records found";
+    }
 
+    protected void btnDisplayAll_Click(object sender, EventArgs e)
+    {
+        // var to store the record count
+        Int32 RecordCount;
+        // assign the results of the DisplayStaff function to record the count var
+        RecordCount = DisplayMenuItems("");
+        //display the number of records found
+        lblError.Text = RecordCount + " records found in the database";
+        // clear the post code filter text box
+        txtMenuItem.Text = "";
     }
 }
