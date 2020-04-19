@@ -30,11 +30,11 @@
                 <asp:Label ID="lblError" runat="server"></asp:Label>
             <br />
             <br />
-&nbsp;<asp:Button ID="btnSignIn" runat="server" OnClick="btnSignIn_Click" Text="Sign In" />
+&nbsp;<asp:Button ID="btnSignIn" runat="server" OnClick="btnSignIn_Click" Text="Sign In" Height="49px" />
 &nbsp;&nbsp;
-            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" Height="47px" />
 &nbsp;
-            <asp:Button ID="btnResetPassword" runat="server" OnClick="btnResetPassword_Click" Text="Re-set Password" />
+            <asp:Button ID="btnResetPassword" runat="server" OnClick="btnResetPassword_Click" Text="Re-set Password" Height="49px" />
        </div>
 </asp:Content>
 
