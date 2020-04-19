@@ -4,17 +4,34 @@
 
 <html>
     <head id="Head1" runat="server">
-        <title>Main Menu</title>
+        <title>Main Menu</title>    
+
         <link href="ProjectBank.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <form id="form1" runat="server">
  
              <header>
-                 <h1>
-                Instant Juice
+                 <h1 style=font-size:40px>
 
-                 </h1>
+
+                Instant Juice  
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; 
+                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; 
+                     &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp;&nbsp;         
+                     <a href="About.html" style=font-size:25px>About</a>
+                      &nbsp; &nbsp; &nbsp;&nbsp;
+                     <asp:HyperLink ID="hypSignIn"  style=font-size:15px runat="server" NavigateUrl="~/SignIn.aspx">Sign In-</asp:HyperLink> 
+                 <asp:HyperLink ID="hypSignUp" style=font-size:15px runat="server" NavigateUrl="~/SignUp.aspx">Sign Up-</asp:HyperLink> 
+                 <asp:HyperLink ID="hypChangePassword" style=font-size:15px runat="server" NavigateUrl="~/ChangePassword.aspx">Change Password-</asp:HyperLink> 
+                 <asp:HyperLink ID="hypSignOut" style=font-size:15px runat="server" NavigateUrl="~/SignOut.aspx">Sign Out-</asp:HyperLink> 
+                 <asp:HyperLink ID="hypReSet" style=font-size:15px runat="server" NavigateUrl="~/ReSet.aspx">Re-Set Password-</asp:HyperLink>
+                <asp:HyperLink ID="hypMainMenu" style=font-size:15px runat="server" NavigateUrl="~/MainMenu.aspx">Main Menu-</asp:HyperLink>
+
+
+                 </h1> 
             </header>
  
             <article>
@@ -25,16 +42,10 @@
  
             <nav>
                  <br /> 
-                 <asp:HyperLink ID="hypSignIn" runat="server" NavigateUrl="~/SignIn.aspx">Sign In-</asp:HyperLink> <br /> <br />
-                 <asp:HyperLink ID="hypSignUp" runat="server" NavigateUrl="~/SignUp.aspx">Sign Up-</asp:HyperLink> <br /> <br />
-                 <asp:HyperLink ID="hypChangePassword" runat="server" NavigateUrl="~/ChangePassword.aspx">Change Password-</asp:HyperLink> <br /> <br />
-                 <asp:HyperLink ID="hypSignOut" runat="server" NavigateUrl="~/SignOut.aspx">Sign Out-</asp:HyperLink> <br /> <br />
-                 <asp:HyperLink ID="hypReSet" runat="server" NavigateUrl="~/ReSet.aspx">Re-Set Password-</asp:HyperLink> <br /> <br />
-                <asp:HyperLink ID="hypMainMenu" runat="server" NavigateUrl="~/MainMenu.aspx">Main Menu-</asp:HyperLink>
+                 
             </nav>
  
             <footer>
-                Footer text here
             </footer>
         </form>
     </body>

@@ -12,8 +12,8 @@
                 <asp:Label ID="lblError" runat="server"></asp:Label>
             <br />
 &nbsp;</div>
-&nbsp;<asp:Button ID="btnReSet" runat="server" Text="Re-set Password" OnClick="btnReSet_Click" />
-&nbsp;<asp:Button ID="btnDone" runat="server" Text="Done" OnClick="btnDone_Click" />
-&nbsp;<asp:Button ID="btnView" runat="server" OnClick="btnView_Click" Text="View Email" />
+&nbsp;<asp:Button ID="btnReSet" runat="server" Text="Re-set Password" OnClick="btnReSet_Click" Height="51px" />
+&nbsp;<asp:Button ID="btnDone" runat="server" Text="Done" OnClick="btnDone_Click" Height="51px" />
+&nbsp;<asp:Button ID="btnView" runat="server" OnClick="btnView_Click" Text="View Email" Height="50px" />
 </asp:Content>
 

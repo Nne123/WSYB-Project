@@ -33,7 +33,7 @@
                     <br />
                     <br />
         </div>
-        <asp:Button ID="btnChange" runat="server" Text="Change Password" OnClick="btnChange_Click" />
-&nbsp;<asp:Button ID="btnDone" runat="server" Text="Done" OnClick="btnCancel_Click" />
+        <asp:Button ID="btnChange" runat="server" Text="Change Password" OnClick="btnChange_Click" Height="50px" />
+&nbsp;<asp:Button ID="btnDone" runat="server" Text="Done" OnClick="btnCancel_Click" Height="50px" Width="80px" />
 </asp:Content>
 

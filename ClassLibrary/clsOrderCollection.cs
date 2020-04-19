@@ -38,9 +38,6 @@ namespace ClassLibrary
 
             }
 
-
-
-
             //clsOrder TestItem = new clsOrder();
             //// set its properties
             //TestItem.OrderNo = 2;

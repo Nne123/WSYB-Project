@@ -113,7 +113,7 @@ namespace TestFramework
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //test to see that the result is correct
@@ -130,11 +130,11 @@ namespace TestFramework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the address no
-            if (AStaff.StaffNo != 1)
+            if (AStaff.StaffNo != 3)
             {
                 OK = false;
             }
@@ -152,11 +152,11 @@ namespace TestFramework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the address no
-            if (AStaff.StaffFirstName != "Brad")
+            if (AStaff.StaffFirstName != "Sally")
             {
                 OK = false;
             }
@@ -174,11 +174,11 @@ namespace TestFramework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the address no
-            if (AStaff.StaffLastName != "Pitt")
+            if (AStaff.StaffLastName != "Phoebe")
             {
                 OK = false;
             }
@@ -196,11 +196,11 @@ namespace TestFramework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the address no
-            if (AStaff.AddressLine != "6 Grange Lane")
+            if (AStaff.AddressLine != "8 Hillbilly State")
             {
                 OK = false;
             }
@@ -218,11 +218,11 @@ namespace TestFramework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the address no
-            if (AStaff.PostCode != "4HG 57G")
+            if (AStaff.PostCode != "HG6 8SH")
             {
                 OK = false;
             }
@@ -240,11 +240,11 @@ namespace TestFramework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the address no
-            if (AStaff.PhoneNo != "0745375957")
+            if (AStaff.PhoneNo != "07563856402")
             {
                 OK = false;
             }
@@ -262,11 +262,11 @@ namespace TestFramework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the address no
-            if (AStaff.CountyNo != 1)
+            if (AStaff.CountyNo != 13)
             {
                 OK = false;
             }
@@ -284,7 +284,7 @@ namespace TestFramework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 3;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the address no

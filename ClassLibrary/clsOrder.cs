@@ -30,8 +30,6 @@ namespace ClassLibrary
         }
 
 
-
-
         public int FirstChoice
         {
             get

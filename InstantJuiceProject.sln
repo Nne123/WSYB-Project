@@ -30,6 +30,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework", "TestFramew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{04B8C402-BB78-4661-8C1E-A42132461586}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{90588DAE-0EEC-4A5F-AD11-39FE2F77BDAE}"
+	ProjectSection(SolutionItems) = preProject
+		..\Themes\sp_hero_img_fruitvege.jpg = ..\Themes\sp_hero_img_fruitvege.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

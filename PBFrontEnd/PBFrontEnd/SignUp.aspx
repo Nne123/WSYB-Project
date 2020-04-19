@@ -32,9 +32,9 @@
                 <br />
                 <br />
         </div>
-&nbsp;&nbsp;&nbsp;<asp:Button ID="btnSignUp" runat="server" Text="Sign Up" OnClick="btnSignUp_Click" />
-            <asp:Button ID="btnDone" runat="server" Text="Done" OnClick="btnDone_Click" />
-            <asp:Button ID="btnResetPassword" runat="server" Text="Re-set Password" OnClick="btnResetPassword_Click" />
-            <asp:Button ID="btnViewEmail" runat="server" Text="View Email" OnClick="btnViewEmail_Click" />
+&nbsp;&nbsp;&nbsp;<asp:Button ID="btnSignUp" runat="server" Text="Sign Up" OnClick="btnSignUp_Click" Height="50px" />
+            <asp:Button ID="btnDone" runat="server" Text="Done" OnClick="btnDone_Click" Height="51px" />
+            <asp:Button ID="btnResetPassword" runat="server" Text="Re-set Password" OnClick="btnResetPassword_Click" Height="51px" />
+            <asp:Button ID="btnViewEmail" runat="server" Text="View Email" OnClick="btnViewEmail_Click" Height="51px" />
 </asp:Content>
 
