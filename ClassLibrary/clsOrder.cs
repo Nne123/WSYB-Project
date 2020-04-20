@@ -149,7 +149,7 @@ namespace ClassLibrary
                 FirstPriceTemp = Convert.ToInt32(firstPrice);
                 if (FirstPriceTemp < 1)
                 {
-                    Error = Error + "The price cannot be in the past £1 : ";
+                    Error = Error + "The price cannot be less than £1 : ";
                 }
 
                 if (FirstPriceTemp > 10)

@@ -6,7 +6,16 @@ namespace TestFramework
 {
     [TestClass]
     public class tstOrder
-    {
+    {   
+        
+        // good test data
+        // create some test data to pass to the method
+        string FirstPrice = Convert.ToString(3);
+        string SecondPrice = Convert.ToString(4);
+        string ThirdPrice = Convert.ToString(5);
+        string OrderTotal = Convert.ToString(12);
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -313,12 +322,7 @@ namespace TestFramework
             Assert.IsTrue(OK);
         }
 
-        // good test data
-        // create some test data to pass to the method
-        string FirstPrice = Convert.ToString(3);
-        string SecondPrice = Convert.ToString(4);
-        string ThirdPrice = Convert.ToString(5);
-        string OrderTotal = Convert.ToString(12);
+     
 
         [TestMethod]
         public void ValidMethodOK()
@@ -657,7 +661,9 @@ namespace TestFramework
             string SecondPrice = Convert.ToString(1);
             string ThirdPrice = Convert.ToString(2);
             string OrderTotal = Convert.ToString(7);
+            //invoke the method
             Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");          
         }
 
@@ -673,7 +679,9 @@ namespace TestFramework
             string SecondPrice = "This is not a price!";
             string ThirdPrice = Convert.ToString(2);
             string OrderTotal = Convert.ToString(7);
+            //invoke the method
             Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -689,7 +697,9 @@ namespace TestFramework
             string SecondPrice = Convert.ToString(2);
             string ThirdPrice = "This is not a price!";
             string OrderTotal = Convert.ToString(7);
+            //invoke the method
             Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -705,7 +715,9 @@ namespace TestFramework
             string SecondPrice = Convert.ToString(7);
             string ThirdPrice = Convert.ToString(2);
             string OrderTotal = "This is not a price!";
+            //invoke the method
             Error = AnOrder.Valid(FirstPrice, SecondPrice, ThirdPrice, OrderTotal);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
     }

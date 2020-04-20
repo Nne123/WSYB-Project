@@ -10,6 +10,7 @@ public partial class ProjectBank : System.Web.UI.MasterPage
     //create an instance of the security class with page level scope
     clsSecurity Sec;
 
+    //this function handles the load event for the page
     protected void Page_Load(object sender, EventArgs e)
     {
         //on load get the current state from the session
@@ -26,6 +27,7 @@ public partial class ProjectBank : System.Web.UI.MasterPage
         SetLinks(Sec.Authenticated);
     }
 
+    // private function for setting the status of links
     private void SetLinks(Boolean Authenticated)
     {
         ///sets the visiible state of the links based on the authentication state

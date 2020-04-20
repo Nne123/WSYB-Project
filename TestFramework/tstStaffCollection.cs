@@ -11,15 +11,22 @@ namespace TestFramework
         [TestMethod]
         public void InstanceOK()
         {
+            //create an instance of the class 
             clsStaffCollection AllStaff = new clsStaffCollection();
+            //test to see that it exists
             Assert.IsNotNull(AllStaff);
         }
 
         [TestMethod]
         public void StaffListOK()
         {
+            //create an instance of the class 
             clsStaffCollection AllStaff = new clsStaffCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
             List<clsStaff> TestList = new List<clsStaff>();
+            //add an item to the list
+            //create the item of test data
             clsStaff TestItem = new clsStaff();
             // set its properties
             TestItem.Active = true;
@@ -42,6 +49,7 @@ namespace TestFramework
         [TestMethod]
         public void ThisStaffPropertyOK()
         {
+            //create an instance of the class 
             clsStaffCollection AllStaff = new clsStaffCollection();
             clsStaff TestStaff = new clsStaff();
             // set its properties
@@ -62,6 +70,7 @@ namespace TestFramework
         [TestMethod]
         public void ListAndCountOK()
         {
+            //create an instance of the class 
             clsStaffCollection AllStaff = new clsStaffCollection();
             List<clsStaff> TestList = new List<clsStaff>();
             clsStaff TestItem = new clsStaff();

@@ -14,7 +14,7 @@
     <asp:DropDownList ID="ddlSecondChoice" runat="server" Height="19px" Width="130px">
     </asp:DropDownList>
 &nbsp;&nbsp;
-    <asp:TextBox ID="txtSecondPrice" runat="server" ReadOnly="True"></asp:TextBox>
+    <asp:TextBox ID="txtSecondPrice" runat="server"></asp:TextBox>
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Label ID="lblThirdChoice" runat="server" Text="Third Choice"></asp:Label>

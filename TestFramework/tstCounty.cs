@@ -10,35 +10,50 @@ namespace TestFramework
         [TestMethod]
         public void InstanceOK()
         {
+            //create an instance of the class we want to create
             clsCounty ACounty = new clsCounty();
+            //test to see that it exists
             Assert.IsNotNull(ACounty);
         }
 
         [TestMethod]
         public void CountyPropertyOK()
         {
+            //create an instance of the class we want to create
             clsCounty ACounty = new clsCounty();
+            //create some test data to assign to the property
             string SomeCounty = "Leicestershire";
+            // assign the data to the property
             ACounty.County = SomeCounty;
+            // test to see that the values are the same
             Assert.AreEqual(ACounty.County, SomeCounty);
         }
 
         [TestMethod]
         public void CountyNoPropertyOK()
         {
+            //create an instance of the class we want to create
             clsCounty ACounty = new clsCounty();
+            //create some test data to assign to the property
             Int32 CountyNo = 1;
+            //assign the data to the property
             ACounty.CountyNo = CountyNo;
+            // test to see that the values are the same
             Assert.AreEqual(ACounty.CountyNo, CountyNo);
         }
 
         [TestMethod]
         public void ValidMethodOK()
         {
+            //create an instance of the class we want to create
             clsCounty ACounty = new clsCounty();
+            //create a string variable to store the result of the validation
             String Error = "";
+            //create some test data to test the method
             string SomeCounty = "Leicestershire";
+            //invoke the method
             Error = ACounty.Valid(SomeCounty);
+            //test to see that the result is OK i.e there was no error message returned
             Assert.AreEqual(Error, "");
         }
 
