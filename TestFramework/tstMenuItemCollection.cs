@@ -11,7 +11,9 @@ namespace TestFramework
         [TestMethod]
         public void InstanceOK()
         {
+            //create an instance of the class 
             clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
+            //test to see that it exists
             Assert.IsNotNull(AllMenuItems);
         }
 
@@ -27,9 +29,15 @@ namespace TestFramework
         [TestMethod]
         public void AllMenuItemsOK()  
         {
+            //create an instance of the class 
             clsMenuItemCollection MenuItems = new clsMenuItemCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
             List<clsMenuItem> TestList = new List<clsMenuItem>();
+            //add an item to the list
+            //create the item of test data
             clsMenuItem TestItem = new clsMenuItem();
+            // set its properties
             TestItem.MenuItemNo = 1;
             TestItem.MenuItem = "Grapes";
             TestItem.MenuItemPrice = 4;
@@ -44,9 +52,15 @@ namespace TestFramework
         [TestMethod]
         public void CountMatchesListOK()
         {
+            //create an instance of the class 
             clsMenuItemCollection MenuItems = new clsMenuItemCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
             List<clsMenuItem> TestList = new List<clsMenuItem>();
+            //add an item to the list
+            //create the item of test data
             clsMenuItem TestItem = new clsMenuItem();
+            // set its properties
             TestItem.MenuItemNo = 1;
             TestItem.MenuItem = "Grapes";
             TestItem.MenuItemPrice = 4;
@@ -71,6 +85,7 @@ namespace TestFramework
         [TestMethod]
         public void ThisMenuItemPropertyOK()
         {
+            //create an instance of the class 
             clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
             // create some test data to assign to the property
             clsMenuItem TestMenuItem = new clsMenuItem();
@@ -105,6 +120,7 @@ namespace TestFramework
         [TestMethod]
         public void AddMethodOK()
         {
+            //create an instance of the class 
             clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
             // create some test data to assign to the property
             clsMenuItem TestItem = new clsMenuItem();
@@ -128,6 +144,7 @@ namespace TestFramework
         [TestMethod]
         public void DeleteMethodOK()
         {
+            //create an instance of the class 
             clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
             // create some test data to assign to the property
             clsMenuItem TestItem = new clsMenuItem();
@@ -156,6 +173,7 @@ namespace TestFramework
         [TestMethod]
         public void UpdateMethodOK()
         {
+            //create an instance of the class 
             clsMenuItemCollection AllMenuItems = new clsMenuItemCollection();
             // create some test data to assign to the property
             clsMenuItem TestItem = new clsMenuItem();

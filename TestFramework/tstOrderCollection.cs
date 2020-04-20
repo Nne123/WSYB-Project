@@ -57,7 +57,9 @@ namespace TestFramework
         [TestMethod]
         public void ThisOrderPropertyOK()
         {
+            //create an instance of the class 
             clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test data to assign to the property
             clsOrder TestOrder = new clsOrder();
             // set the properties of the test object
             TestOrder.OrderNo = 2;
@@ -77,8 +79,10 @@ namespace TestFramework
         [TestMethod]
         public void ListAndCountOK()
         {
+            //create an instance of the class 
             clsOrderCollection AllOrders = new clsOrderCollection();
             List<clsOrder> TestList = new List<clsOrder>();
+            //create some test data to assign to the property
             clsOrder TestItem = new clsOrder();
             TestItem.OrderNo = 2;
             TestItem.FirstChoice = 3;
@@ -106,9 +110,13 @@ namespace TestFramework
         [TestMethod]
         public void AddMethodOK()
         {
+            //create an instance of the class 
             clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test data to assign to the property
             clsOrder TestItem = new clsOrder();
+            //var to store the primary key
             Int32 PrimaryKey = 0;
+            //set its properties
             TestItem.OrderNo = 1;
             TestItem.FirstChoice = 3;
             TestItem.SecondChoice = 2;
@@ -132,9 +140,13 @@ namespace TestFramework
         [TestMethod]
         public void UpdateMethodOK()
         {
+            //create an instance of the class 
             clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test data to assign to the property
             clsOrder TestItem = new clsOrder();
+            //var to store the primary key
             Int32 PrimaryKey = 0;
+            //set its properties
             TestItem.OrderNo = 1;
             TestItem.FirstChoice = 3;
             TestItem.SecondChoice = 2;
@@ -170,8 +182,11 @@ namespace TestFramework
         [TestMethod]
         public void DeleteMethodOK()
         {
+            //create an instance of the class 
             clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test data to assign to the property
             clsOrder TestItem = new clsOrder();
+            //var to store the primary key
             Int32 PrimaryKey = 0;
             // set its properties
             TestItem.OrderNo = 1;

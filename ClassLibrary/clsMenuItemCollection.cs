@@ -7,22 +7,32 @@ namespace ClassLibrary
 {
     public class clsMenuItemCollection
     {
-        private List<clsMenuItem> mAllMenuItems = new List<clsMenuItem>();
-
+        // private data member for the list
+        List<clsMenuItem> mAllMenuItems = new List<clsMenuItem>();
+        // private data member for this Menu item
         clsMenuItem mThisMenuItem = new clsMenuItem();
 
         // public constructor for the class
         public clsMenuItemCollection()
         {
+            // object for data connection
             clsDataConnection DB = new clsDataConnection();
+            // execute the stored procedure
             DB.Execute("sproc_tblMenuItem_SelectAll");
+            // get the count of records
             Int32 RecordCount = DB.Count;
+            // set up the index for the loop
             Int32 Index = 0;
+            // while there are records to process
             while (Index < RecordCount)
             {
+                // create a new instance of the menu class
                 clsMenuItem AMenuItem = new clsMenuItem();
+                // get the menu item price
                 AMenuItem.MenuItemPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["MenuItemPrice"]);
+                // get the menu item
                 AMenuItem.MenuItem = DB.DataTable.Rows[Index]["MenuItem"].ToString();
+                // get the menu item no
                 AMenuItem.MenuItemNo = Convert.ToInt32(DB.DataTable.Rows[Index]["MenuItemNo"]);
                 mAllMenuItems.Add(AMenuItem);
                 Index++;

@@ -39,7 +39,7 @@ public partial class MainMenu : System.Web.UI.Page
     //    btnStaff.Visible = Authenticated;
     //}
 
-
+        // private function for setting the status of the links
     private void SetLinks(Boolean Authenticated)
     {
         ///sets the visiible state of the links based on the authentication state
@@ -53,7 +53,7 @@ public partial class MainMenu : System.Web.UI.Page
         // if user has logged in
         if (Authenticated == false)
         {
-            // make staff, menu and order available
+            // make staff, menu and order buttons available
             btnOrder.Visible = true;
             btnMenu.Visible = false;
             btnStaff.Visible = false;

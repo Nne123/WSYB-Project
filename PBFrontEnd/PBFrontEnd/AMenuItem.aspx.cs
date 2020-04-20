@@ -8,8 +8,10 @@ using ClassLibrary;
 
 public partial class AMenuItem : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
     Int32 MenuItemNo;
 
+    //event handler for the page load event
     protected void Page_Load(object sender, EventArgs e)
     {
         // get the number of the menu item to be processed
@@ -18,11 +20,13 @@ public partial class AMenuItem : System.Web.UI.Page
         {
             if (MenuItemNo != -1)
             {
+                // populate the list of items
                 DisplayMenuItem();
             }
         }
     }
 
+    //function for populating the county drop down list
     void DisplayMenuItem()
     {
         //create an instance of the address book
@@ -34,8 +38,10 @@ public partial class AMenuItem : System.Web.UI.Page
         txtPrice.Text = MenuItemBook.ThisMenuItem.MenuItemPrice.ToString();
     }
 
+    //function for add
     void Add()
     {
+        // create an instance of the menu item class
         clsMenuItemCollection MenuItemBook = new clsMenuItemCollection();
         // validate the data on the web form
         String Error = MenuItemBook.ThisMenuItem.Valid(txtMenuItem.Text , txtPrice.Text);
@@ -55,7 +61,7 @@ public partial class AMenuItem : System.Web.UI.Page
         }
     }
 
-
+    //function for update
     void Update()
     {
         //create an instance of the menu item book
@@ -83,24 +89,29 @@ public partial class AMenuItem : System.Web.UI.Page
     }
 
     
-
+    // event handler for OK button
     protected void btnOK_Click(object sender, EventArgs e)
     {
+        // if menu item no is new
         if (MenuItemNo == -1)
         {
+            // add the record
             Add();
         }
+        // otherwise
         else
         {
+            // update the record
             Update();
         }
 
-        
+        // redirect to the default page
         Response.Redirect("MenuDefault.aspx");
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
+        // redirect to the default page
         Response.Redirect("MenuDefault.aspx");
     }
 }

@@ -11,12 +11,15 @@ public partial class AnOrder : System.Web.UI.Page
     // variable to store the key with page level scope
     Int32 OrderNo;
 
+    //event handler for the page load event
     protected void Page_Load(object sender, EventArgs e)
     {
         // get the number of the order to be processed
         OrderNo = Convert.ToInt32(Session["OrderNo"]);
+        // if post back is false
         if (IsPostBack == false)
         {
+            // populate the list of menu items
             DisplayMenuItems();
 
             // if this is not a new record
@@ -27,6 +30,8 @@ public partial class AnOrder : System.Web.UI.Page
             }
         }
     }
+
+    //function for populating the menu items drop down list
 
     void DisplayMenuItems()
     {
@@ -50,8 +55,10 @@ public partial class AnOrder : System.Web.UI.Page
 
     }
 
+    //function for displaying the order in text fields
     void DisplayOrder()
     {
+        // create an instance of the order book
         clsOrderCollection OrderBook = new clsOrderCollection();
         // find the record to update
         OrderBook.ThisOrder.Find(OrderNo);
@@ -65,8 +72,10 @@ public partial class AnOrder : System.Web.UI.Page
         txtOrderTotal.Text = OrderBook.ThisOrder.OrderTotal.ToString();
     }
 
+    //function for adding new records
     void Add()
     {
+        // create an instance of the order book
         clsOrderCollection OrderBook = new clsOrderCollection();
         // validate the data on the web form
         String Error = OrderBook.ThisOrder.Valid(txtFirstPrice.Text, txtSecondPrice.Text, txtThirdPrice.Text, txtOrderTotal.Text);
@@ -86,11 +95,13 @@ public partial class AnOrder : System.Web.UI.Page
         }
         else
         {
+            //report an error
             lblError.Text = "There were problems with the data entered " + Error;
         }
 
     }
 
+    //function for updating records
     void Update()
     {
         // create an instance of the class
@@ -114,10 +125,12 @@ public partial class AnOrder : System.Web.UI.Page
 
             // update the record
             OrderBook.Update();
+            //all done so redirect back to the main page
             Response.Redirect("OrderDefault.aspx");
         }
         else
         {
+            //report an error
             lblError.Text = "There were problems with the data entered " + Error;
         }
     }
@@ -171,9 +184,10 @@ public partial class AnOrder : System.Web.UI.Page
 
 
 
-
+    //event handler for the ok button
     protected void btnOK_Click(object sender, EventArgs e)
     {
+        // if order no does not exist
         if (OrderNo == -1)
         {
             // add the record
@@ -184,14 +198,15 @@ public partial class AnOrder : System.Web.UI.Page
             // update the record
             Update();
         }
-        
+
         Response.Redirect("OrderDefault.aspx");
     }
 
 
-
+    //event handler for the cancel button
     protected void btnCancel_Click(object sender, EventArgs e)
     {
+        // redirect to the order default page
         Response.Redirect("OrderDefault.aspx");
     }
 
@@ -199,16 +214,9 @@ public partial class AnOrder : System.Web.UI.Page
     {
 
     }
-    //clsMenuItemCollection MenuBook = new clsMenuItemCollection();
 
-    //public int GetMenuItemPrices
-    //{
-    //    get
-    //    {
-    //        return MenuBook.ThisMenuItem.MenuItemPrice;
-    //    }
-    //}
 
+     // function for retrieve prices
     void RetrievePrices()
     {
         clsOrderCollection OrderBook = new clsOrderCollection();
@@ -218,9 +226,9 @@ public partial class AnOrder : System.Web.UI.Page
         int currentSecondChoice = Convert.ToInt32(ddlSecondChoice.SelectedValue);
         int currentThirdChoice = Convert.ToInt32(ddlThirdChoice.SelectedValue);
 
-        int currentFirstPrice = MenuBook.ThisMenuItem.MenuItemPrice;
-        int currentSecondPrice = MenuBook.ThisMenuItem.MenuItemPrice;
-        int currentThirdPrice = MenuBook.ThisMenuItem.MenuItemPrice;
+        int currentFirstPrice = MenuBook.ThisMenuItem.MenuItemNo;
+        int currentSecondPrice = MenuBook.ThisMenuItem.MenuItemNo;
+        int currentThirdPrice = MenuBook.ThisMenuItem.MenuItemNo;
 
         if (currentFirstChoice == MenuBook.ThisMenuItem.MenuItemNo)
         //if (currentFirstChoice == currentFirstPrice)
@@ -246,14 +254,17 @@ public partial class AnOrder : System.Web.UI.Page
         {
 
         }
+        // store the current first choice into the price text boxes
         txtFirstPrice.Text = currentFirstChoice.ToString();
         txtSecondPrice.Text = currentSecondChoice.ToString();
         txtThirdPrice.Text = currentThirdChoice.ToString();
     }
 
 
+    // function to calcualte 
     void Calculate()
     {
+        // copy the data into the variables
         int FirstPrice = Convert.ToInt32(txtFirstPrice.Text);
         int SecondPrice = Convert.ToInt32(txtSecondPrice.Text);
         int ThirdPrice = Convert.ToInt32(txtThirdPrice.Text);
@@ -261,32 +272,42 @@ public partial class AnOrder : System.Web.UI.Page
         // find the total
         int Total = (FirstPrice + SecondPrice + ThirdPrice);
 
+        // copy the data into the text box
         txtOrderTotal.Text = Total.ToString("0");
     }
 
+    // function to clear the text boxes
     void ClearTextBoxes()
     {
+        // assign the text boxes to empty string
         txtFirstPrice.Text = "";
         txtSecondPrice.Text = "";
         txtThirdPrice.Text = "";
     }
 
+    // event handler for refresh button
     protected void btnRefresh_Click(object sender, EventArgs e)
     {
+        // if the textboxes are already filled
         if (txtFirstPrice.Text != "-1" || txtSecondPrice.Text != "-1" || txtThirdPrice.Text != "-1")
         {
+            // invoke the clear text boxes method
             ClearTextBoxes();
         }
 
+        // if the text boxes are empty
         if (txtFirstPrice.Text == "" || txtSecondPrice.Text == "" || txtThirdPrice.Text == "")
         {
+            // retrieve the prices
             RetrievePrices();
-        } 
+        }
+        // otherwise
         else
         {
-            Calculate();
+            //
         }
 
+        // 
         Calculate();
 
         //UpdateSession();
