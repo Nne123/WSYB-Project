@@ -32,7 +32,6 @@ public partial class AnOrder : System.Web.UI.Page
     }
 
     //function for populating the menu items drop down list
-
     void DisplayMenuItems()
     {
         clsMenuItemCollection MenuItems = new clsMenuItemCollection();
@@ -229,6 +228,7 @@ public partial class AnOrder : System.Web.UI.Page
         int currentFirstPrice = MenuBook.ThisMenuItem.MenuItemNo;
         int currentSecondPrice = MenuBook.ThisMenuItem.MenuItemNo;
         int currentThirdPrice = MenuBook.ThisMenuItem.MenuItemNo;
+
 
         if (currentFirstChoice == MenuBook.ThisMenuItem.MenuItemNo)
         //if (currentFirstChoice == currentFirstPrice)
