@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCardDetails.cs" />
+    <Compile Include="clsCardDetailsCollection.cs" />
     <Compile Include="clsCounty.cs" />
     <Compile Include="clsCountyCollection.cs" />
     <Compile Include="clsDataConnection.cs" />

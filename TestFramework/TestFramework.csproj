@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tstCardDetails.cs" />
+    <Compile Include="tstCardDetailsCollection.cs" />
     <Compile Include="tstCounty.cs" />
     <Compile Include="tstCountyCollection.cs" />
     <Compile Include="tstMenuItem.cs" />
