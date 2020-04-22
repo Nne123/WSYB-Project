@@ -46,31 +46,6 @@ namespace ClassLibrary
 
             }
 
-            //clsOrder TestItem = new clsOrder();
-            //// set its properties
-            //TestItem.OrderNo = 2;
-            //TestItem.FirstMenuItem = 3;
-            //TestItem.SecondMenuItem = 2;
-            //TestItem.ThirdtMenuItem = 1;
-            //TestItem.FirstPrice = 3;
-            //TestItem.SecondPrice = 2;
-            //TestItem.ThirdPrice = 1;
-            //TestItem.OrderTotal = 6;
-            //// add the item to the list
-            //mOrderList.Add(TestItem);
-            //// re initialise the object for some new data
-            //TestItem = new clsOrder();
-            //// set its properties
-            //TestItem.OrderNo = 1;
-            //TestItem.FirstMenuItem = 2;
-            //TestItem.SecondMenuItem = 3;
-            //TestItem.ThirdtMenuItem = 3;
-            //TestItem.FirstPrice = 4;
-            //TestItem.SecondPrice = 4;
-            //TestItem.ThirdPrice = 3;
-            //TestItem.OrderTotal = 11;
-            //// add the item to the list
-            //mOrderList.Add(TestItem);
         }
 
         //public list for orderlist
