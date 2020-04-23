@@ -53,6 +53,7 @@ public partial class AMenuItem : System.Web.UI.Page
             MenuItemBook.ThisMenuItem.MenuItemPrice = Convert.ToInt32(txtPrice.Text);
             // add the record
             MenuItemBook.Add();
+            Response.Redirect("MenuDefault.aspx");
         }
         else
         {
@@ -106,7 +107,7 @@ public partial class AMenuItem : System.Web.UI.Page
         }
 
         // redirect to the default page
-        Response.Redirect("MenuDefault.aspx");
+        //Response.Redirect("MenuDefault.aspx");
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)

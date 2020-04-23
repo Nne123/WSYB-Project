@@ -91,6 +91,8 @@ public partial class AnOrder : System.Web.UI.Page
             OrderBook.ThisOrder.OrderTotal = Convert.ToInt32(txtOrderTotal.Text);
             // add the record
             OrderBook.Add();
+            //Response.Redirect("OrderDefault.aspx");
+            Response.Redirect("ACardDetails.aspx");
         }
         else
         {
@@ -153,7 +155,7 @@ public partial class AnOrder : System.Web.UI.Page
             Update();
         }
 
-        Response.Redirect("ACardDetails.aspx");
+        //Response.Redirect("ACardDetails.aspx");
     }
 
 

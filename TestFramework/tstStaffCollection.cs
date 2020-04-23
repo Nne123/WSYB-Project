@@ -221,33 +221,5 @@ namespace TestFramework
             // test to see that the two values are the same
             Assert.AreEqual(0, FilteredStaff.Count);
         }
-
-        //[TestMethod]
-        //public void ReportByLastNameTestDataFound()
-        //{
-        //    //create an instance of the class we want to create
-        //    clsStaffCollection FilteredStaff = new clsStaffCollection();
-        //    Boolean OK = true;
-        //    FilteredStaff.ReportByLastName("Gomery");
-        //    if (FilteredStaff.Count == 2)
-        //    {
-        //        //check that the first record is ID 3
-        //        if (FilteredStaff.StaffList[0].StaffNo != 3)
-        //        {
-        //            OK = false;
-        //        }
-        //        //check that the first record is ID 7
-        //        if (FilteredStaff.StaffList[0].StaffNo != 7)
-        //        {
-        //            OK = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        OK = false;
-        //    }
-        //    //test to see that there are no records
-        //    Assert.IsTrue(OK);
-        //}
     }
 }
