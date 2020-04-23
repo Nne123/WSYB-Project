@@ -64,6 +64,9 @@ public partial class AStaff : System.Web.UI.Page
             StaffBook.ThisStaff.Active = chkActive.Checked;
             // add the record
             StaffBook.Add();
+            Response.Redirect("StaffDefault.aspx");
+
+
         }
         else
         {
@@ -88,7 +91,8 @@ public partial class AStaff : System.Web.UI.Page
         }
 
         //redirect to the main page
-        Response.Redirect("StaffDefault.aspx");
+        //Response.Redirect("StaffDefault.aspx");
+
     }
 
     // function for update

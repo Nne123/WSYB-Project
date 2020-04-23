@@ -655,21 +655,6 @@ namespace TestFramework
             Assert.AreNotEqual(Error, "");
         }
 
-        [TestMethod]
-        public void AddressLineExtremeMin()  // -300 char
-        {
-            //create an instance of the class
-            clsStaff AStaff = new clsStaff();
-            //string variable to store any error message
-            String Error = "";
-            //create some test data to pass to the method
-            string AddressLine = "";
-            AddressLine = AddressLine.PadRight(6, 'a');
-            //invoke the method
-            Error = AStaff.Valid(FirstName, LastName, AddressLine, PostCode,  PhoneNo);
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
 
         [TestMethod]
         public void AddressLineExtremeMax()  // 300 char
